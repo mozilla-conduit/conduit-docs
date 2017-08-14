@@ -76,9 +76,20 @@ have disabled the use of some of these applications.
 The default left-side menu in Phabricator lists the most important
 applications for Mozilla's use case.  In addition to Differential and
 Herald, described above, we support or are trialing several other
-applications:
+applications and utilities:
 
-TBD
+* Dashboards allow users to set up custom pages to display useful
+  information, for example assigned reviews.  It seems somewhat
+  limited, though, so we'll evaluate how useful it really is.
+
+* Pholio is an application for reviewing mock-ups and designs.
+  Mozilla doesn't have a central application for this, so we'd like
+  your input on whether Pholio is useful.
+
+* Badges, macros, and tokens: These are mostly bits of whimsy that
+  might enhance user experience by providing some levity.  If they're
+  fun, or at least harmless, we'll leave them; if they become annoying
+  or distracting, we may remove them.
 
 Note that Phabricator also has a post-commit review system called
 Audit.  This application is mandatory, that is, it cannot be
