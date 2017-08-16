@@ -6,6 +6,9 @@ Phabricator at Mozilla
 User Guide
 **********
 
+.. todo:: Replace links to Phabricator documentation with links to our
+	  production Diviner site, when it's launched.
+
 As Mozilla's Phabricator instance has only small modifications from
 stock Phabricator, most of those concerning integration points with
 BMO (see various sections below), much of `Phabricator's user
@@ -42,6 +45,9 @@ available.
 ***********
 Quick Start
 ***********
+
+Creating an Account
+===================
 
 The first step toward submitting a patch via Phabricator is to create
 an account.  Click the "Log In" button at the top of any Phabricator
