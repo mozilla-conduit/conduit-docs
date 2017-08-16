@@ -43,7 +43,54 @@ available.
 Quick Start
 ***********
 
-TBD
+The first step toward submitting a patch via Phabricator is to create
+an account.  Click the "Log In" button at the top of any Phabricator
+page.
+
+.. image:: images/login-button.png
+   :align: center
+   :alt: Screenshot of Phabricator login button
+
+You'll be taken to another page with a single button, which will take
+you to `bugzilla.mozilla.org <https://bugzilla.mozilla.org>`_ (BMO) to
+log in or register a new account.
+
+.. image:: images/bmo-login.png
+   :align: center
+   :alt: Screenshot of BMO login button
+
+After you've done so, you'll be redirected back to Phabricator, where
+you will be prompted to create a new Phabricator account.
+
+.. image:: images/create-account.png
+   :align: center
+   :alt: Screenshot of account-creation form
+
+The "Real Name" field is taken from your BMO account's real name.  If
+your BMO real name also contains the ircnick convention, that is, a
+username starting with a colon, it will be extracted and placed into
+the Phabricator account's username field.  Note that if you surrounded
+it with parentheses, brackets, or other punctuation, you may need to
+strip that out of the Phabricator real name field as well.  Above is a
+screenshot of the account-creation form for a BMO user with the real
+name "Phabricator Test [:phabtest]".  Before clicking "Register
+Account" the remaining "[]" should be deleted from the real name.
+Note that the username field is mandatory, so if you didn't have one
+automatically filled in, you'll have to pick one.
+
+.. important::
+   The username field is unique.  You should pick a clearly
+   identifiable username, particularly if you will be doing code
+   reviews, such as your nick on irc.mozilla.org.  If your nick is not
+   available but you think it should be because, for example, you are
+   at least somewhat known in the Mozilla community, please file a bug
+   or let us know in #phabricator on irc.mozilla.org.
+
+.. todo:: link to appropriate product & component above
+.. todo:: are we really keeping 2FA on?
+
+You now have a Phabricator account set up and can both submit and
+review patches (along with using the other Phabriator applications).
 
 ****************
 Our Installation
@@ -98,7 +145,6 @@ post-commit review of Firefox and related code, so we do not recommend
 its use, at least until such time as a process is deemed necessary and
 implemented.  Audit may, of course, be useful to projects hosted on
 the Mozilla Phabricator instance outside of Firefox.
-
 
 ***************
 BMO Integration

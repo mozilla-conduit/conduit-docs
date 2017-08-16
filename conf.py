@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-extensions = []
+extensions = [
+    'sphinx.ext.todo',
+]
 
 templates_path = ['_templates']
 
