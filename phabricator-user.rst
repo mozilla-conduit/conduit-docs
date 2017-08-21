@@ -136,6 +136,54 @@ This will prompt you to visit a page on our Phabricator instance which
 will generate an API key for you to paste into your terminal.  The
 key is stored in ``.arcrc`` in your home directory.
 
+Submitting Patches
+==================
+
+There are a few ways to use Arcanist and Differential.  We'll cover a
+common use case, which is somewhat similar to GitHub's process.
+
+The Initial Patch
+-----------------
+
+First, commit a change.  Here's an example::
+
+    $ echo "Test" > PHABTEST
+    $ hg add PHABTEST && hg commit -m "Add test file."
+
+Then run ``arc diff`` to create a revision in Differential.  You'll be
+taken to an editor to add extra details.  Your commit message will be
+used to create the revision title and summary.  The other fields are
+optional with the exception of ``Bug``, which must be set to a valid
+BMO bug number.  Unfortunately, a limitation of Phabricator currently
+prevents us from seeding this field with a bug ID from the commit
+message (at least from the first line, where bug IDs are usually
+mentioned in mozilla-central changesets); however, we may be able to
+work around this by implementing a ``mach`` command that wraps
+``arc``.
+
+You may want to add a reviewer, which should be a Phabricator username
+(e.g. ``mcote``).  You can also add one or more subscribers, who will
+be notified of updates to the revision.
+
+After you exit the editor, the revision should be created.  Here's
+example output using our development instance::
+
+    Created a new Differential revision:
+            Revision URI: https://mozphab.dev.mozaws.net/D29
+
+    Included changes:
+      A       PHABTEST
+
+If you visit the revision at the provided URL, you will see that it is
+labelled "Needs Review", which is the default state of a newly created
+revision.  It will also be marked "Public", unless the bug ID you
+entered is a confidential bug to which you have access.  For
+convenience, an attachment is created on the bug containing just the
+URL to the new revision, with the description being the revision's
+title.  Finally, you will also see a few actions on the revision,
+which are automatically performed by our BMO-integration code.  For
+more on Phabricator-BMO integration, see :ref:`bmo-integration`.
+
 ****************
 Our Installation
 ****************
@@ -189,6 +237,8 @@ post-commit review of Firefox and related code, so we do not recommend
 its use, at least until such time as a process is deemed necessary and
 implemented.  Audit may, of course, be useful to projects hosted on
 the Mozilla Phabricator instance outside of Firefox.
+
+.. _bmo-integration:
 
 ***************
 BMO Integration
