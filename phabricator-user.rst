@@ -139,13 +139,16 @@ key is stored in ``.arcrc`` in your home directory.
 Submitting Patches
 ==================
 
-There are a few ways to use Arcanist and Differential.  We'll cover a
-common use case, which is somewhat similar to GitHub's process.
+There are a few ways to use Arcanist and Differential.  We'll cover
+two common use cases: "fix-up commits", which is somewhat similar to
+GitHub's process, and amended commits, which is similar to MozReview's
+model.
 
 The Initial Patch
 -----------------
 
-First, commit a change.  Here's an example::
+Submitting the initial patch is the same in both processes.  First,
+commit a change.  Here's an example::
 
     $ echo "Test" > PHABTEST
     $ hg add PHABTEST && hg commit -m "Add test file."
@@ -183,6 +186,52 @@ URL to the new revision, with the description being the revision's
 title.  Finally, you will also see a few actions on the revision,
 which are automatically performed by our BMO-integration code.  For
 more on Phabricator-BMO integration, see :ref:`bmo-integration`.
+
+Fix-Up Commits
+--------------
+
+After your patch has been reviewed, you may have to update your patch
+and get another round of reviews.  As mentioned, there are two ways to
+do this in Differential.
+
+The "fix-up commit" model involves creating a new commit containing
+the updates.  This is similar to GitHub's standard process.  You will
+end up with a series of commits that should be "squashed" into a
+single commit before landing, since the fix-up commits are not useful
+history once a change has landed.
+
+Here's an example that adds another line to our test file from above::
+
+    $ echo "Update" >> PHABTEST
+    $ hg commit -m "Update patch."
+
+Running ``arc diff`` this time opens your editor again, but this time
+the format is much simpler.  You just need to provide a change
+summary, which again is automatically seeded from your commit
+message.  Arcanist should also have determined which revision to
+update.  If for some reason it was not able to, you can use the
+``--update`` option to specify a revision ID.
+
+After the update has been submitted, you will see output similar to this::
+
+    Updated an existing Differential revision:
+            Revision URI: https://mozphab.dev.mozaws.net/D29
+
+    Included changes:
+      A       PHABTEST
+
+Going to the revision's URL will show the change in the activity log.
+There will also be new entries in the "History" and "Commits" tabs in
+the "Revision Contents" table.  You can use the History tab to switch
+between various diff views: the current patch, the patch at a
+particular point in history, and the changes between different commits
+(effectively an interdiff of the patch history).  Here are the changes
+between the first and second commit ("Diff 1" and "Diff 2" in
+Phabricator language):
+
+.. image:: images/interdiff.png
+   :align: center
+   :alt: Screenshot of changes between Diff 1 and Diff 2
 
 ****************
 Our Installation
