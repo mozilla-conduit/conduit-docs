@@ -98,6 +98,44 @@ automatically filled in, you'll have to pick one.
 You now have a Phabricator account set up and can both submit and
 review patches (along with using the other Phabriator applications).
 
+Setting up Arcanist
+===================
+
+Although you can submit patches via the web interface, the preferred
+method is to use Arcanist, the Phabricator command-line tool.
+Installing the tool depends on your operating system; see the
+`Arcanist Quick Start guide
+<https://secure.phabricator.com/book/phabricator/article/arcanist_quick_start/>`_.
+Note that in Windows 10, you can use the Linux-based instructions if
+you are running the `Windows Subsystem for Linux
+<https://msdn.microsoft.com/en-us/commandline/wsl/about>`_.
+
+On Ubuntu, you will need PHP and an extension installed: ``sudo apt
+install php php-curl``.  Then clone the Arcanist repos as described in
+the Quick Start guide linked above, and add the ``arcanist/bin/``
+directory to your path.  Note that you can also install the Arcanist
+apt package, but you may not get recent fixes and improvements.
+
+If your project does not currently have a ``.arcconfig`` checked into
+the its repository, you can create one locally, which should look like
+this::
+
+    {
+      "phabricator.uri" : "https://mozphab-phabhost.devsvcprod.mozaws.net/"
+    }
+
+.. todo:: Verify production URL.
+
+The next step is to authenticate Arcanist with our Phabricator
+installation.  From within your project's repository, run the
+following command::
+
+    $ arc install-certificate
+
+This will prompt you to visit a page on our Phabricator instance which
+will generate an API key for you to paste into your terminal.  The
+key is stored in ``.arcrc`` in your home directory.
+
 ****************
 Our Installation
 ****************
