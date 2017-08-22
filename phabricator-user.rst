@@ -144,6 +144,8 @@ two common use cases: "fix-up commits", which is somewhat similar to
 GitHub's process, and amended commits, which is similar to MozReview's
 model.
 
+.. _initial-patch:
+
 The Initial Patch
 -----------------
 
@@ -232,6 +234,28 @@ Phabricator language):
 .. image:: images/interdiff.png
    :align: center
    :alt: Screenshot of changes between Diff 1 and Diff 2
+
+Amended Commits
+---------------
+
+The other method for updating patches is to amend the commits in
+place.  This is similar to MozReview's standard process.
+
+Starting from the end of the above section, :ref:`initial-patch`,
+rather than creating a new commit, we amend the existing commit, like
+so::
+
+    $ echo "Update" >> PHABTEST
+    $ hg commit --amend
+
+After running ``arc diff``, an editor is again opened for a change
+summary, although this time there is no new commit message to use, so
+we must enter one manually.  Once the update is processed, the
+revision looks very similar to the revision with fix-up commits,
+except the "Commits" tab of the "Revision Contents" table has only a
+single entry.  The "History" tab, however, is identical to the fix-up
+commits scenario, with "Diff 1" and "Diff 2" entries, and the same
+ability to see the different patches and differences between them.
 
 ****************
 Our Installation
