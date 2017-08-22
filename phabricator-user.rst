@@ -10,10 +10,9 @@ User Guide
 	  production Diviner site, when it's launched.
 
 As Mozilla's Phabricator instance has only small modifications from
-stock Phabricator, most of those concerning integration points with
-BMO (see various sections below), much of `Phabricator's user
-documentation <https://secure.phabricator.com/book/phabricator/>`_
-is fully applicable.
+stock Phabricator, much of `Phabricator's user documentation
+<https://secure.phabricator.com/book/phabricator/>`_ is fully
+applicable.  Several sections are of particular interest.
 
 Arcanist is the command-line interface to Phabricator, mainly used to
 submit patches for review.  There is an `Arcanist Quick Start guide
@@ -57,9 +56,10 @@ page.
    :align: center
    :alt: Screenshot of Phabricator login button
 
-You'll be taken to another page with a single button, which will take
-you to `bugzilla.mozilla.org <https://bugzilla.mozilla.org>`_ (BMO) to
-log in or register a new account.
+You'll be taken to another page with a single button, which will in
+turn take you to `bugzilla.mozilla.org
+<https://bugzilla.mozilla.org>`_ (BMO) to log in or register a new
+account.
 
 .. image:: images/bmo-login.png
    :align: center
@@ -132,15 +132,15 @@ following command::
 
     $ arc install-certificate
 
-This will prompt you to visit a page on our Phabricator instance which
+This will prompt you to visit a page on our Phabricator instance, which
 will generate an API key for you to paste into your terminal.  The
-key is stored in ``.arcrc`` in your home directory.
+key is stored in the file ``.arcrc`` in your home directory.
 
 Submitting Patches
 ==================
 
 There are a few ways to use Arcanist and Differential.  We'll cover
-two common use cases: "fix-up commits", which is somewhat similar to
+two common use cases: fix-up commits, which is somewhat similar to
 GitHub's process, and amended commits, which is similar to MozReview's
 model.
 
