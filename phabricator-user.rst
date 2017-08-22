@@ -189,6 +189,8 @@ title.  Finally, you will also see a few actions on the revision,
 which are automatically performed by our BMO-integration code.  For
 more on Phabricator-BMO integration, see :ref:`bmo-integration`.
 
+.. _fix-up-commits:
+
 Fix-Up Commits
 --------------
 
@@ -256,6 +258,42 @@ except the "Commits" tab of the "Revision Contents" table has only a
 single entry.  The "History" tab, however, is identical to the fix-up
 commits scenario, with "Diff 1" and "Diff 2" entries, and the same
 ability to see the different patches and differences between them.
+
+Series of Commits
+-----------------
+
+It is possible to chain a series of revisions together in Differential,
+although it is currently a manual process.  Each revision can have one
+or more parents and one or more children.  This feature can be used to
+represent a stack of commits to split up a complicated patch, which is
+a good practice to make testing and review easier.
+
+To use this pattern, you will need to specify the exact commit you
+want to send to Differential, since the default is to send all your
+draft commits to a single revision, i.e. the :ref:`fix-up-commits`
+method, which is not what we want here.  To send the currently
+checked-out commit, run ``arc diff .^``.
+
+To set the parent-child relationship, go to your first commit, choose
+"Edit Related Revisions..." from the right-hand menu, then "Edit Child
+Revisions".  Your child revision may be suggested, or you can enter
+an ID into the search box, including the ``D`` to denote a
+differential revision, e.g. ``D32``:
+
+.. image:: images/add-child-revision.png
+   :align: center
+   :alt: Screenshot of the dialog for adding a child revision
+
+Select the appropriate revision and click "Save Child Revisions".  The
+"Revision Contents" table will now have a new tab, "Stack", which
+shows the current stack of revisions:
+
+.. image:: images/revision-stack.png
+   :align: center
+   :alt: Screenshot of a revision stack
+
+Unfortunately there is not currently a way to see a combined diff of
+all the stacked commits together without applying the commits locally.
 
 ****************
 Our Installation
