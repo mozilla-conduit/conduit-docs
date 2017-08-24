@@ -121,7 +121,7 @@ the its repository, you can create one locally, which should look like
 this::
 
     {
-      "phabricator.uri" : "https://mozphab-phabhost.devsvcprod.mozaws.net/"
+      "phabricator.uri" : "https://phabricator.services.mozilla.com/"
     }
 
 .. todo:: Verify production URL.
