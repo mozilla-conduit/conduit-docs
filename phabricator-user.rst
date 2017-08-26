@@ -259,6 +259,8 @@ single entry.  The "History" tab, however, is identical to the fix-up
 commits scenario, with "Diff 1" and "Diff 2" entries, and the same
 ability to see the different patches and differences between them.
 
+.. _series-of-commits:
+
 Series of Commits
 -----------------
 
@@ -293,7 +295,66 @@ shows the current stack of revisions:
    :alt: Screenshot of a revision stack
 
 Unfortunately there is not currently a way to see a combined diff of
-all the stacked commits together without applying the commits locally.
+all the stacked commits together without applying the commits
+locally.  Also, when you update any commits, you'll need to run ``arc
+diff .^`` for each child commit as well.
+
+Reviewing Patches
+=================
+
+Pulling Down Commits
+--------------------
+
+You can pull down the commits from any revision you have access to via
+the ``arc patch`` command.  If you have a stack of revisions (see
+above section :ref:`series-of-commits`), the commits from all previous
+revisions will be applied as well.  Note that if you are pulling down
+a stack of revisions but have a different commit currently checked out
+than was used as the parent of the first commit, you will get warnings
+like this::
+
+    This diff is against commit a237e16c2f716f55a22d53279f3914a231ae4051, but
+    the commit is nowhere in the working copy. Try to apply it against the
+    current working copy state? (.) [Y/n]
+
+This is because the first commit now has a different parent and hence
+a different SHA.  You can avoid this problem by updating to the parent
+of the first commit before running ``arc patch``.
+
+Leaving Reviews
+---------------
+
+Performing a review involves two steps, both of which are technically
+optional but will usually be used together:
+
+1. Leaving comments on the diff or on the revision generally.
+2. Choosing an action to indicate the next step for the author.
+
+Leaving comments is fairly straightforward.  For inline diff comments,
+click on the line number where you want to leave a comment, and enter
+some text.  The text editor is quite rich; you can use many styling
+and formatting tools.  Below the diff is another text-entry box, which
+can be used for general comments ("Looks good to me", "Here are some
+suggestions for your overall design", etc.).
+
+At this point you can click the "Submit" button at the bottom;
+however, this will leave the review open.  You might want to do this
+if you have some preliminary comments and plan to give a more detailed
+review later.  However, usually you will want to use the "Add
+Action..." dropdown to signal a clear intent to the revision author
+and to communicate what they should do next.  These actions include:
+
+* **Accept Revision**: The diff is good as it is and can be landed.
+* **Request Changes**: The diff needs some changes before it can be
+  landed.  Specific change requests should be left as comments, as
+  described above.
+* **Resign as Reviewer**: This indicates that you are not able to or
+  do not wish to review this change.  You will be removed from the
+  reviewers list and hence will not get notifications of updates to
+  the revision.  You should explain in a comment why you are resigning
+  (e.g. going on vacation soon, not your area of expertise, etc.) and
+  ideally a substitute reviewer or other action for the author to
+  take, if there are no longer sufficient reviewers on the revision.
 
 ****************
 Our Installation
