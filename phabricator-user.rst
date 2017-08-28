@@ -14,8 +14,8 @@ stock Phabricator, much of `Phabricator's user documentation
 <https://secure.phabricator.com/book/phabricator/>`_ is fully
 applicable.  Several sections are of particular interest.
 
-Arcanist is the command-line interface to Phabricator, mainly used to
-submit patches for review.  There is an `Arcanist Quick Start guide
+**Arcanist** is the command-line interface to Phabricator, mainly used
+to submit patches for review.  There is an `Arcanist Quick Start guide
 <https://secure.phabricator.com/book/phabricator/article/arcanist_quick_start/>`_,
 a larger `Arcanist User Guide
 <https://secure.phabricator.com/book/phabricator/article/arcanist/>`_,
@@ -25,7 +25,7 @@ available in the main Phabricator documentation.  There are also other
 related articles available under the `Application User Guides
 <https://secure.phabricator.com/book/phabricator/>`_.
 
-Differential is Phabricator's code-review tool.  Useful articles
+**Differential** is Phabricator's code-review tool.  Useful articles
 include the `Differential User Guide
 <https://secure.phabricator.com/book/phabricator/article/differential/>`_,
 the `FAQ
@@ -34,8 +34,8 @@ and the `Inline Comments guide
 <https://secure.phabricator.com/book/phabricator/article/differential_inlines/>`_.
 As usual, there are other articles available for specific subjects.
 
-Another useful application is Herald, which can perform actions, such
-as sending notifications, based on object changes (such as a
+Another useful application is **Herald**, which can perform actions,
+such as sending notifications, based on object changes (such as a
 Differential revision being created or updated).  There is a short
 `user guide
 <https://secure.phabricator.com/book/phabricator/article/herald/>`_
@@ -49,8 +49,9 @@ Creating an Account
 ===================
 
 The first step toward submitting a patch via Phabricator is to create
-an account.  Click the "Log In" button at the top of any Phabricator
-page.
+an account.  Visit our Phabricator instance at
+https://phabricator.services.mozilla.com/ and click the "Log In" button
+at the top of any page.
 
 .. image:: images/login-button.png
    :align: center
