@@ -67,21 +67,23 @@ account.
    :alt: Screenshot of BMO login button
 
 After you've done so, you'll be redirected back to Phabricator, where
-you will be prompted to create a new Phabricator account.
+you will be prompted to create a new Phabricator account.  On this
+form, the "Real Name" field is taken from your BMO account's real
+name.  If your BMO real name also contains the ``:<ircnick>``
+convention, that is, a username starting with a colon, it will be
+extracted and placed into the Phabricator account's username field.
+Common surrounding punctuation, e.g. parentheses (``()``) and brackets
+(``[]``) will be stripped out and discarded.  If you've used some
+other way to separate or emphasize your username, you'll have to
+remove the extraneous characters from the Real Name field manually
+before clicking "Register Account".  The following screenshot shows
+the account-creation form, with default values, for a BMO user with
+the real name "Phabricator Test [:phabtest]".
 
 .. image:: images/create-account.png
    :align: center
    :alt: Screenshot of account-creation form
 
-The "Real Name" field is taken from your BMO account's real name.  If
-your BMO real name also contains the ircnick convention, that is, a
-username starting with a colon, it will be extracted and placed into
-the Phabricator account's username field.  Note that if you surrounded
-it with parentheses, brackets, or other punctuation, you may need to
-strip that out of the Phabricator real name field as well.  Above is a
-screenshot of the account-creation form for a BMO user with the real
-name "Phabricator Test [:phabtest]".  Before clicking "Register
-Account" the remaining "[]" should be deleted from the real name.
 Note that the username field is mandatory, so if you didn't have one
 automatically filled in, you'll have to pick one.
 
