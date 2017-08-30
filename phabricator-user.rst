@@ -160,16 +160,19 @@ commit a change.  Here's an example::
     $ echo "Test" > PHABTEST
     $ hg add PHABTEST && hg commit -m "Add test file."
 
-Then run ``arc diff`` to create a revision in Differential.  You'll be
-taken to an editor to add extra details.  Your commit message will be
-used to create the revision title and summary.  The other fields are
-optional with the exception of ``Bug``, which must be set to a valid
-BMO bug number.  Unfortunately, a limitation of Phabricator currently
-prevents us from seeding this field with a bug ID from the commit
-message (at least from the first line, where bug IDs are usually
-mentioned in mozilla-central changesets); however, we may be able to
-work around this by implementing a ``mach`` command that wraps
-``arc``.
+Then create a revision in Differential::
+
+    $ arc diff
+
+You'll be taken to an editor to add extra details.  Your commit
+message will be used to create the revision title and summary.  The
+other fields are optional with the exception of ``Bug``, which must be
+set to a valid BMO bug number.  Unfortunately, a limitation of
+Phabricator currently prevents us from seeding this field with a bug
+ID from the commit message (at least from the first line, where bug
+IDs are usually mentioned in mozilla-central changesets); however, we
+may be able to work around this by implementing a ``mach`` command
+that wraps ``arc``.
 
 You may want to add a reviewer, which should be a Phabricator username
 (e.g. ``mcote``).  You can also add one or more subscribers, who will
@@ -214,14 +217,19 @@ Here's an example that adds another line to our test file from above::
     $ echo "Update" >> PHABTEST
     $ hg commit -m "Update patch."
 
-Running ``arc diff`` this time opens your editor again, but this time
-the format is much simpler.  You just need to provide a change
-summary, which again is automatically seeded from your commit
-message.  Arcanist should also have determined which revision to
-update.  If for some reason it was not able to, you can use the
-``--update`` option to specify a revision ID.
+Submitting the change to Differential is the same command::
 
-After the update has been submitted, you will see output similar to this::
+    $ arc diff
+
+Your editor will again be opened, but this time the format is much
+simpler.  You just need to provide a change summary, which again is
+automatically seeded from your commit message.  Arcanist should also
+have determined which revision to update.  If for some reason it was
+not able to, you can use the ``--update`` option to specify a
+revision ID.
+
+After the update has been submitted, you will see output similar to
+this::
 
     Updated an existing Differential revision:
             Revision URI: https://mozphab.dev.mozaws.net/D29
@@ -276,8 +284,10 @@ patch, which is a good practice to make testing and reviewing easier.
 To use this pattern, you will need to specify the exact commit you
 want to send to Differential, since the default is to send all your
 draft commits to a single revision, i.e., the :ref:`fix-up-commits`
-method, which is not what we want here.  To send the currently
-checked-out Mercurial commit, run ``arc diff .^``.
+method, which is not what we want here.  To send only the currently
+checked-out Mercurial commit, run the following::
+
+    $ arc diff .^
 
 To set the parent-child relationship, go to your first commit, choose
 "Edit Related Revisions..." from the right-hand menu, then "Edit Child
@@ -311,13 +321,17 @@ Reviewing Patches
 Pulling Down Commits
 --------------------
 
-You can pull down the commits from any revision you have access to via
-the ``arc patch`` command.  If you have a stack of revisions (see
-above section :ref:`series-of-commits`), the commits from all previous
-revisions will be applied as well.  Note that if you are pulling down
-a stack of revisions but have a different commit currently checked out
-than was used as the parent of the first commit, you will get warnings
-like this::
+You can pull down the commits from any revision you have access with
+this command::
+
+    $ arc patch <revision id>
+
+If you have a stack of revisions (see above section
+:ref:`series-of-commits`), the commits from all previous revisions
+will be applied as well.  Note that if you are pulling down a stack of
+revisions but have a different commit currently checked out than was
+used as the parent of the first commit, you will get warnings like
+this::
 
     This diff is against commit a237e16c2f716f55a22d53279f3914a231ae4051, but
     the commit is nowhere in the working copy. Try to apply it against the
