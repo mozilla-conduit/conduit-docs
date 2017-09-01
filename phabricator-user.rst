@@ -129,8 +129,6 @@ this::
       "phabricator.uri" : "https://phabricator.services.mozilla.com/"
     }
 
-.. todo:: Verify production URL.
-
 The next step is to authenticate Arcanist with our Phabricator
 installation.  From within your project's repository, run the
 following command::
