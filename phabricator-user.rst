@@ -89,15 +89,15 @@ the real name "Phabricator Test [:phabtest]".
 Note that the username field is mandatory, so if you didn't have one
 automatically filled in, you'll have to pick one.
 
-.. important::
-   The username field is unique.  You should pick a clearly
-   identifiable username, particularly if you will be doing code
-   reviews, such as your nick on irc.mozilla.org.  If your nick is not
-   available but you think it should be because, for example, you are
-   at least somewhat known in the Mozilla community, please file a bug
+.. important:: The username field is unique.  You should pick a
+   clearly identifiable username, particularly if you will be doing
+   code reviews, such as your nick on irc.mozilla.org.  If your nick
+   is not available but you think it should be because, for example,
+   you are at least somewhat known in the Mozilla community, please
+   `file a bug
+   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Administration>`_
    or let us know in #phabricator on irc.mozilla.org.
 
-.. todo:: link to appropriate product & component above
 .. todo:: are we really keeping 2FA on?
 
 You now have a Phabricator account set up and can both submit and
