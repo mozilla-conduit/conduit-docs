@@ -495,3 +495,40 @@ as Reviewer" action.  Similarly, all r+ flags are removed if the
 author selects any of the "Plan Changes", "Request Review", or
 "Abandon Revision" actions.  In the last case, the stub attachment is
 also be obsoleted.
+
+****************
+Getting in Touch
+****************
+
+If you have questions about our Phabricator installation, you can find
+the team in #phabricator on irc.mozilla.com and mozilla.slack.com.
+The team also hangs out in #conduit, which is our channel for
+development discussions.  Feel free to join if you'd like to help us
+out!
+
+Issues can be filed in Bugzilla under the Conduit product.  These are
+the main components:
+
+* `Administration
+  <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Administration>`_:
+  For requests to add new repositories and other similar tasks.
+* `Documentation
+  <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Documentation>`_:
+  For issues with these and other project docs.
+* `Phabricator Extensions
+  <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Phabricator%20Extensions>`_:
+  For issues with our extensions (authentication, BMO integration,
+  etc.).  Note that we may move bugs filed here to
+  `bugzilla.mozilla.org :: Extensions: PhabBugz
+  <https://bugzilla.mozilla.org/enter_bug.cgi?product=bugzilla.mozilla.org&component=Extensions%3A%20PhabBugz>`_
+  depending on where the problem exists in our code.
+* `Phabricator (Upstream)
+  <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Phabricator%20(Upstream)>`_:
+  For issues with the general Phabricator product.  Note that, as
+  discussed in :ref:`bmo-integration`, we are strictly limiting
+  customizations to our instance.  We may, however, work with upstream
+  in fixing important issues.
+* `General
+  <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=General>`_:
+  Feel free to file issues here if you aren't sure where they should
+  go.  We'll triage them as needed.
