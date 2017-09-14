@@ -1,6 +1,6 @@
-######################
-Phabricator at Mozilla
-######################
+##############################
+Mozilla Phabricator User Guide
+##############################
 
 **********
 User Guide
@@ -384,12 +384,7 @@ intentionally small in scope and are limited to supporting integration
 points with `bugzilla.mozilla.org <https://bugzilla.mozilla.org>`_
 ("BMO").
 
-We are using various GitHub repos for our code: the
-`deployment scripts and config <https://github.com/mozilla-services/mozphab>`_ 
-and our `patches and custom extensions
-<https://github.com/mozilla-services/phabricator-extensions>`_.  There
-is also a related `BMO extension
-<https://github.com/mozilla-bteam/bmo/tree/master/extensions/PhabBugz>`_.
+See :ref:`conduit-repos` for the location of our source code.
 
 ************
 Applications
