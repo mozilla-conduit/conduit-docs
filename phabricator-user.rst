@@ -324,6 +324,14 @@ this command::
 
     $ arc patch <revision id>
 
+It is helpful to understand that ``arc patch``, by default, will not attempt to
+patch the revision on top of your current working set. Instead, it applies the
+changes on top of the same parent commit the author used and creates a new
+commit and a new branch (git) or bookmark (hg). If it cannot find the same
+parent commit in your local repo then it will warn you and give you the option
+to apply it on top of the current working set. If you wish to test a revision
+on top of your current working set use ``arc patch --nobranch``.
+
 If you have a stack of revisions (see above section
 :ref:`series-of-commits`), the commits from all previous revisions
 will be applied as well.  Note that if you are pulling down a stack of
@@ -373,6 +381,24 @@ and to communicate what they should do next.  These actions include:
   (e.g. going on vacation soon, not your area of expertise, etc.) and
   ideally a substitute reviewer or other action for the author to
   take, if there are no longer sufficient reviewers on the revision.
+
+***************
+Landing Patches
+***************
+
+Landing to git repositories is simple: ``arc land --revision D123``. arc
+will apply the revision on top of the master branch and push to the remote
+origin, assuming you have permission. You can override the "master" branch with
+the ``--onto`` flag and you can override the remote origin with the ``--remote``
+flag.
+
+Manually landing to mozilla-inbound is also straightforward: check out the
+``inbound`` bookmark, run ``arc patch D123 --nobranch``, and then push the
+commits to mozilla-inbound as normal. The ``--nobranch`` flag is needed because
+otherwise arc will create a new commit and bookmark that is not based on the tip
+of ``inbound``. If the command fails, run ``arc patch D123`` and then manually
+rebase the commits on top of the ``inbound`` bookmark.
+
 
 ****************
 Our Installation
