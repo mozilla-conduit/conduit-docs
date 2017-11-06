@@ -386,7 +386,8 @@ and to communicate what they should do next.  These actions include:
 Landing Patches
 ***************
 
-Landing to git repositories is simple: ``arc land --revision D123``. arc
+Landing to git repositories is simple: ``arc patch D123`` (assuming that the
+most recent version is not already checked out locally) then ``arc land``. arc
 will apply the revision on top of the master branch and push to the remote
 origin, assuming you have permission. You can override the "master" branch with
 the ``--onto`` flag and you can override the remote origin with the ``--remote``
