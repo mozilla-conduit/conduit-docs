@@ -24,6 +24,7 @@ Table of Contents
 .. toctree::
    :maxdepth: 2
 
+   getting-started
    phabricator-user
    mozreview-migration-guide
    contributing
