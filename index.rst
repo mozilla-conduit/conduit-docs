@@ -25,6 +25,7 @@ Table of Contents
    :maxdepth: 2
 
    phabricator-user
+   lando-user
    walkthrough
    mozreview-migration-guide
    contributing
