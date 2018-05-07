@@ -1,33 +1,29 @@
-************
-Introduction
-************
+*********************************
+Phabricator Workflow Walk-through
+*********************************
 
-Mercurial Setup
-===============
-
-.. TODO link to the main phab doc
+**IMPORTANT:** Make sure you have :ref:`set up Phabricator and Arcanist <quick-start>` before proceeding!
 
 Multi-Head vs. bookmarks
 ========================
 
 While some developers use bookmarks/etc to track changes, it's possible to just create a new "head", which essentially means "just start coding off tip and commit".  The ``hg wip`` alias provides a view of the repository that allows for keeping track of the work.
 
-.. FIXME: wording
-.. FIXME: include link to https://mozilla-version-control-tools.readthedocs.io/en/latest/hgmozilla/workflows.html#to-label-or-not-to-label ?
+For this guide we will use just repository heads: no bookmarks or labels.
 
-***************
-Getting Started
-***************
+(If you want to dig deeper into the "to label or not to label" discussion, see `this document <https://mozilla-version-control-tools.readthedocs.io/en/latest/hgmozilla/workflows.html#to-label-or-not-to-label>`_)
 
-Style 1: One review per head
-============================
 
-In this style we use GitHub-style fix-up commits under a single head.  The fix-ups will be squashed into a single commit before landing.
+Style 1: One repository head per review
+=======================================
+
+In this style we use GitHub-style fix-up commits under a single repository head.  The fix-ups will be squashed into a single commit before landing.
 
 We'll use:
 
-* One review
-* Multiple fix-up commits under one head
+* One repository head
+* One review request per head
+* ``hg commit`` to add fix-up commits to the head
 
 Fixing the code
 ---------------
