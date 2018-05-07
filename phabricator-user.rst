@@ -6,39 +6,36 @@ Mozilla Phabricator User Guide
 User Guide
 **********
 
-.. todo:: Replace links to Phabricator documentation with links to our
-	  production Diviner site, when it's launched.
-
 As Mozilla's Phabricator instance has only small modifications from
 stock Phabricator, much of `Phabricator's user documentation
-<https://secure.phabricator.com/book/phabricator/>`_ is fully
+<https://phabricator.services.mozilla.com/book/phabricator/>`_ is fully
 applicable.  Several sections are of particular interest.
 
 **Arcanist** is the command-line interface to Phabricator, mainly used
 to submit patches for review.  There is an `Arcanist Quick Start guide
-<https://secure.phabricator.com/book/phabricator/article/arcanist_quick_start/>`_,
+<https://phabricator.services.mozilla.com/book/phabricator/article/arcanist_quick_start/>`_,
 a larger `Arcanist User Guide
-<https://secure.phabricator.com/book/phabricator/article/arcanist/>`_,
+<https://phabricator.services.mozilla.com/book/phabricator/article/arcanist/>`_,
 and a specific `guide to "arc diff"
-<https://secure.phabricator.com/book/phabricator/article/arcanist_diff/>`_
+<https://phabricator.services.mozilla.com/book/phabricator/article/arcanist_diff/>`_
 available in the main Phabricator documentation.  There are also other
 related articles available under the `Application User Guides
-<https://secure.phabricator.com/book/phabricator/>`_.
+<https://phabricator.services.mozilla.com/book/phabricator/>`_.
 
 **Differential** is Phabricator's code-review tool.  Useful articles
 include the `Differential User Guide
-<https://secure.phabricator.com/book/phabricator/article/differential/>`_,
+<https://phabricator.services.mozilla.com/book/phabricator/article/differential/>`_,
 the `FAQ
-<https://secure.phabricator.com/book/phabricator/article/differential_faq/>`_,
+<https://phabricator.services.mozilla.com/book/phabricator/article/differential_faq/>`_,
 and the `Inline Comments guide
-<https://secure.phabricator.com/book/phabricator/article/differential_inlines/>`_.
+<https://phabricator.services.mozilla.com/book/phabricator/article/differential_inlines/>`_.
 As usual, there are other articles available for specific subjects.
 
 Another useful application is **Herald**, which can perform actions,
 such as sending notifications, based on object changes (such as a
 Differential revision being created or updated).  There is a short
 `user guide
-<https://secure.phabricator.com/book/phabricator/article/herald/>`_
+<https://phabricator.services.mozilla.com/book/phabricator/article/herald/>`_
 available.
 
 .. _quick-start:
@@ -110,7 +107,7 @@ Although you can submit patches via the web interface, the preferred
 method is to use Arcanist, the Phabricator command-line tool.
 Installing the tool depends on your operating system; see the
 `Arcanist Quick Start guide
-<https://secure.phabricator.com/book/phabricator/article/arcanist_quick_start/>`_.
+<https://phabricator.services.mozilla.com/book/phabricator/article/arcanist_quick_start/>`_.
 Note that in Windows 10, you can use the Linux-based instructions if
 you are running the `Windows Subsystem for Linux
 <https://msdn.microsoft.com/en-us/commandline/wsl/about>`_.
