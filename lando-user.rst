@@ -75,11 +75,17 @@ if the trees are closed, it may take longer.  The landing request will
 stay in the queue until it is executed.
 
 Once the landing is executed, the timeline will be updated with the
-results:
+results.
 
 .. image:: images/lando-successful-landing.png
    :align: center
    :alt: Screenshot of the Lando timeline of a successful landing
+
+.. note:: Lando pages do not currently automatically refresh; you will
+          have to reload them manually to see updates.  There is a
+          `bug
+          <https://bugzilla.mozilla.org/show_bug.cgi?id=1460364>`_
+          open to fix this.
 
 If the landing failed, an error message will be displayed.  This error
 may represent a problem with the revision, e.g. a merge conflict.  In
