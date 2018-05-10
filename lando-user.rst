@@ -75,7 +75,7 @@ if the trees are closed, it may take longer.  The landing request will
 stay in the queue until it is executed.
 
 Once the landing is executed, the timeline will be updated with the
-results.
+results:
 
 .. image:: images/lando-successful-landing.png
    :align: center
