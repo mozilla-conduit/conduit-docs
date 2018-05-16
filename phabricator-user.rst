@@ -513,6 +513,27 @@ author selects any of the "Plan Changes", "Request Review", or
 "Abandon Revision" actions.  In the last case, the stub attachment is
 also be obsoleted.
 
+******************
+Using git-cinnabar
+******************
+
+We have developed a special version of ``arc`` for ``git-cinnabar``. It has 
+been created to map commit hashes between Mercurial and Git. This allows 
+patching a Diff which has been created with ``git-cinnabar`` into Mercurial 
+repository and vice versa.
+
+Please install the Arcanist as described in :ref:`quick-start` 
+with a change to the location of the arcanist repository:
+
+
+    $ mkdir somewhere/
+    $ cd somewhere/
+    somewhere/ $ git clone https://github.com/phacility/libphutil.git
+    somewhere/ $ git clone https://github.com/mozilla-conduit/arcanist.git
+                                              ^^^^^^^^^^^^^^^
+
+ 
+
 ****************
 Getting in Touch
 ****************
