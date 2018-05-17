@@ -523,7 +523,7 @@ patching a Diff which has been created with ``git-cinnabar`` into Mercurial
 repository and vice versa.
 
 Please install the Arcanist as described in :ref:`quick-start` 
-with a change to the location of the arcanist repository:
+with a change to the location of the arcanist repository::
 
 
     $ mkdir somewhere/
