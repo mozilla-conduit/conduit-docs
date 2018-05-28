@@ -568,20 +568,18 @@ the main components:
 
 * `Administration
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Administration>`_:
-  For requests to add new repositories and other similar tasks.
+  For requests to add new repositories and similar tasks.
 * `Documentation
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Documentation>`_:
   For issues with these and other project docs.
-* `Phabricator Extensions
-  <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Phabricator%20Extensions>`_:
-  For issues with our extensions (authentication, BMO integration,
-  etc.).  Note that we may move bugs filed here to
+* `Phabricator
+  <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Phabricator>`_:
+  For issues with Phabricator, including our extensions (authentication, BMO integration,
+  etc.) and with the upstream Phabricator product.  For bugs in our
+  extensions, we may move them to
   `bugzilla.mozilla.org :: Extensions: PhabBugz
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=bugzilla.mozilla.org&component=Extensions%3A%20PhabBugz>`_
-  depending on where the problem exists in our code.
-* `Phabricator (Upstream)
-  <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Phabricator%20(Upstream)>`_:
-  For issues with the general Phabricator product.  Note that, as
+  depending on where the problem exists in our code.  Also note that, as
   discussed in :ref:`bmo-integration`, we are strictly limiting
   customizations to our instance.  We may, however, work with upstream
   in fixing important issues.
