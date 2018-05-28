@@ -383,20 +383,39 @@ and to communicate what they should do next.  These actions include:
 Landing Patches
 ***************
 
-Landing to git repositories is simple: ``arc patch D123`` (assuming that the
-most recent version is not already checked out locally) then ``arc land``. arc
-will apply the revision on top of the master branch and push to the remote
-origin, assuming you have permission. You can override the "master" branch with
-the ``--onto`` flag and you can override the remote origin with the ``--remote``
-flag.
+For Mercurial repositories, in particular `mozilla-central
+<https://hg.mozilla.org/mozilla-central>`_, we highly recommend using
+:doc:`Lando </lando-user>`.  See :ref:`getting-in-touch` to have
+repositories added to Phabricator and Lando.
 
-Manually landing to mozilla-inbound is also straightforward: check out the
-``inbound`` bookmark, run ``arc patch D123 --nobranch``, and then push the
-commits to mozilla-inbound as normal. The ``--nobranch`` flag is needed because
-otherwise arc will create a new commit and bookmark that is not based on the tip
-of ``inbound``. If the command fails, run ``arc patch D123`` and then manually
-rebase the commits on top of the ``inbound`` bookmark.
+If you cannot use Lando, e.g. for :ref:`confidential revisions
+<confidential-revision-warning>`, we highly recommend manually landing
+to mozilla-inbound without the use of ``arc patch`` nor ``arc land``,
+both of which add metadata to the commit message which may not be
+desirable, such as the list of revision subscribers.
 
+If you do not have the commit applied locally (e.g. you are landing
+someone else's patch), you can use the "Download Raw Diff" link, found
+in the right-hand menu on the revision, and apply it as usual with
+``patch``.  If you have Arcanist installed, you could also run ``arc
+patch --nocommit --skip-dependencies D<revision id>``.  This will
+apply the diff locally but not commit it, nor will it apply any
+parents.  You can then commit it manually, using the revision title as
+the first line of the commit message and the Summary field as the body.
+
+Conversely, for repositories other than mozilla-central, the
+amendments Phabricator makes to commit messages may in fact be useful.
+If you are the author of a patch, you can use ``arc land``, which will
+update the commit message with revision metadata, including reviewers
+and revision URL, rebase your commit onto the master branch (Git) or
+default head (Mercurial), and automatically push the commits to the
+destination repository.
+
+If you are landing someone else's patch, you can run ``arc patch
+D<revision id> --nobranch`` first to apply the commit(s) locally
+(``--nobranch`` ensures the commits are applied to the current
+branch/head).  You can then run ``arc land`` or just push the commits
+as usual.
 
 ****************
 Our Installation
@@ -532,7 +551,7 @@ with a change to the location of the arcanist repository::
     somewhere/ $ git clone https://github.com/mozilla-conduit/arcanist.git
                                               ^^^^^^^^^^^^^^^
 
- 
+.. _getting-in-touch:
 
 ****************
 Getting in Touch
