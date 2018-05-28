@@ -34,6 +34,13 @@ You can also go directly to a revision's Lando page by specifying the
 revision ID in the Lando URL:
 ``https://lando.services.mozilla.com/revisions/D<rev number>/``.
 
+.. _confidential-revision-warning:
+
+.. note:: Lando cannot yet land confidential revisions.  Support will
+          be added soon after launch; follow `bug 1443704
+          <https://bugzilla.mozilla.org/show_bug.cgi?id=1443704>`_ for
+          updates.
+
 A relevant set of metadata about the revision is presented, including
 the diff ID (with a link back to Phabricator), the author, the status
 of reviews, and the commit message.  There is also a timeline of
