@@ -284,11 +284,12 @@ checked-out Mercurial commit, run the following::
 
     $ arc diff .^
 
-To set the parent-child relationship, go to your first commit, choose
-"Edit Related Revisions..." from the right-hand menu, then "Edit Child
-Revisions".  Your child revision may be suggested, or you can enter
-an ID into the search box, including the ``D`` to denote a
-differential revision, e.g. ``D32``:
+To set the parent-child relationship, you can use the UI or put a
+directive into the child's commit message.  To use the UI, go to your
+first commit, choose "Edit Related Revisions..." from the right-hand
+menu, then "Edit Child Revisions".  Your child revision may be
+suggested, or you can enter an ID into the search box, including the
+``D`` to denote a differential revision, e.g. ``D32``:
 
 .. image:: images/add-child-revision.png
    :align: center
@@ -302,10 +303,18 @@ shows the current stack of revisions:
    :align: center
    :alt: Screenshot of a revision stack
 
+You can also add ``Depends on D<revision ID>`` to the child's commit
+message, replacing ``<revision ID>`` with the ID of the parent
+revision.  The relationship will be created when ``arc diff`` is run.
+
 Unfortunately there is not currently a way to see a combined diff of
 all the stacked commits together without applying the commits
 locally.  Also, when you update any commits, you'll need to run ``arc
 diff .^`` for each child commit as well.
+
+See also this `blog post
+<https://smacleod.ca/posts/commit-series-with-phabricator/>`_ on
+working with commit series in Phabricator.
 
 We will be working on a solution to automate the submission and
 updating of commit series.
