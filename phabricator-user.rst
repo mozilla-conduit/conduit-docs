@@ -98,7 +98,7 @@ automatically filled in, you'll have to pick one.
 .. todo:: are we really keeping 2FA on?
 
 You now have a Phabricator account set up and can both submit and
-review patches (along with using the other Phabriator applications).
+review patches (along with using the other Phabricator applications).
 
 Setting up Arcanist
 ===================
