@@ -312,7 +312,8 @@ shows the current stack of revisions:
 
 You can also add ``Depends on D<revision ID>`` to the child's commit
 message, replacing ``<revision ID>`` with the ID of the parent
-revision.  The relationship will be created when ``arc diff`` is run.
+revision. (This needs to be its own paragraph, separated by a blank line.)
+The relationship will be created when ``arc diff`` is run.
 
 Unfortunately there is not currently a way to see a combined diff of
 all the stacked commits together without applying the commits
