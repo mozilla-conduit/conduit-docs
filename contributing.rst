@@ -12,6 +12,10 @@ guidelines that most of the Conduit apps follow.  Each application
 also has specific setup instructions; see the individual
 :ref:`conduit-repos`.
 
+We've created the `Suite <https://github.com/mozilla-conduit/suite>`_ project
+to simplify the integration of all containers within the developer's
+machine.
+
 Bugs
 ----
 
@@ -33,6 +37,8 @@ We use our `Phabricator instance
 those repos hosted on GitHub.  It is tied to our Bugzilla instance for
 both identity and issue management.  See the :doc:`phabricator-user`
 for more information.
+
+.. note:: Please test your code before creating a revision in Phabricator.
 
 Technologies
 ------------
@@ -87,3 +93,10 @@ The source code for most Conduit applications lives on GitHub.
 * `conduit-docs <https://github.com/mozilla-conduit/conduit-docs>`_
   contains the source for the docs you are reading now.
 
+* `autoland-transplant <https://github.com/mozilla-conduit/autoland-transplant>`_
+  is a tool that automatically lands patches from one Mercurial tree to
+  another.
+
+* `suite <https://github.com/mozilla-conduit/suite>`_
+  allows you to connect and run all above services in a local development
+  environment.
