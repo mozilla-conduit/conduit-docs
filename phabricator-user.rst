@@ -161,13 +161,20 @@ Then create a revision in Differential::
 
 You'll be taken to an editor to add extra details.  Your commit
 message will be used to create the revision title and summary.  The
-other fields are optional with the exception of ``Bug``, which must be
-set to a valid BMO bug number.  Unfortunately, a limitation of
-Phabricator currently prevents us from seeding this field with a bug
-ID from the commit message (at least from the first line, where bug
-IDs are usually mentioned in mozilla-central changesets); however, we
-may be able to work around this by implementing a ``mach`` command
-that wraps ``arc``.
+other fields are optional.  This includes ``Bug``; omitting a bug
+ID will result in the revision not being associated with a bug, and
+thus it will automatically be public.  If set, the field must contain
+a valid BMO bug number.  Note that mozilla-central commit policy
+currently `requires a bug number
+<https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Committing_Rules_and_Responsibilities#Checkin_comment>`_
+in the commit message under most circumstances.
+
+Unfortunately, a limitation of Phabricator currently prevents us from
+seeding this field with a bug ID from the commit message (at least
+from the first line, where bug IDs are usually mentioned in
+mozilla-central changesets); however, we will be able to work around
+this in our upcoming `custom command-line interface
+<https://wiki.mozilla.org/Engineering_Workflow/Road_Map#Better_support_for_commit_series_in_Phabricator_and_Lando>`_.
 
 You may want to add a reviewer, which should be a Phabricator username
 (e.g. ``mcote``).  You can also add one or more subscribers, who will
