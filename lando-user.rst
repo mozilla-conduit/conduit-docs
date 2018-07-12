@@ -101,3 +101,12 @@ it appears to be an error with Lando itself (or related services),
 please let us know in #lando on IRC or `file a bug
 <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Lando>`_.
 
+**************************
+Frequently Asked Questions
+**************************
+
+See the FAQ `on the wiki
+<https://wiki.mozilla.org/Phabricator/FAQ#Lando>`_ for answers
+to common questions and issues.  The FAQ is on a wiki to make it
+easier to maintain; please feel free to update it if you come across
+other frequently asked questions!

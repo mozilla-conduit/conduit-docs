@@ -603,3 +603,13 @@ the main components:
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=General>`_:
   Feel free to file issues here if you aren't sure where they should
   go.  We'll triage them as needed.
+
+**************************
+Frequently Asked Questions
+**************************
+
+See the FAQ `on the wiki
+<https://wiki.mozilla.org/Phabricator/FAQ#Phabricator>`_ for answers
+to common questions and issues.  The FAQ is on a wiki to make it
+easier to maintain; please feel free to update it if you come across
+other frequently asked questions!
