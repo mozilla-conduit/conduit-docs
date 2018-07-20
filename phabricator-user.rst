@@ -360,6 +360,8 @@ This is because the first commit now has a different parent and hence
 a different SHA.  You can avoid this problem by updating to the parent
 of the first commit before running ``arc patch``.
 
+.. _leaving-reviews:
+
 Leaving Reviews
 ---------------
 
@@ -379,11 +381,12 @@ suggestions for your overall design", etc.).
 At this point you can click the "Submit" button at the bottom;
 however, this will leave the review open.  You might want to do this
 if you have some preliminary comments and plan to give a more detailed
-review later.  However, usually you will want to use the "Add
-Action..." dropdown to signal a clear intent to the revision author
-and to communicate what they should do next.  These actions include:
+review later.  Usually you will want to use the "Add Action..."
+dropdown to signal a clear intent to the revision author and to
+communicate what they should do next.  These actions include:
 
-* **Accept Revision**: The diff is good as it is and can be landed.
+* **Accept Revision**: The diff is good as it is and can be landed, or
+  at most requires small changes that do not need re-review.
 * **Request Changes**: The diff needs some changes before it can be
   landed.  Specific change requests should be left as comments, as
   described above.
@@ -394,6 +397,38 @@ and to communicate what they should do next.  These actions include:
   (e.g. going on vacation soon, not your area of expertise, etc.) and
   ideally a substitute reviewer or other action for the author to
   take, if there are no longer sufficient reviewers on the revision.
+
+Other Revision Actions
+======================
+
+In addition to the review-related actions mentioned in the
+:ref:`leaving-reviews` section, there are other common tasks that are
+accomplished through the actions dropdown.  The following are
+available to revision authors:
+
+* **Request Review**: Asks the reviewer(s) to take another look at the
+  revision.  If it is not already, the revision status will be changed
+  to "Needs Review".  If a reviewer has previously accepted the
+  revision, their review status will be changed to "Accepted Prior
+  Diff" (the icon for this status is similar to the "Accepted"
+  checkmark, but it is grey instead of green).
+* **Plan Changes**: Removes revisions from reviewers' queues, meaning
+  that they will no longer be visible under "Ready to Review" on their
+  "Active Revisions" dashboards, until a new diff is uploaded.  The
+  revision will appear under "Ready to Update" on the author's "Active
+  Revisions" dashboard.
+* **Abandon Revision**: Indicates that a revision is no longer
+  relevant and should be disregarded.
+
+There is another action available specifically to nonauthors:
+
+* **Commandeer Revision**: Allows you to take over a revision by
+  becoming its author.  Note that the original author will no longer
+  be able to post updated diffs to the revision.
+
+After selecting an action, you must always hit the "Submit" button
+below.  You may optionally add a comment to indicate your reasoning
+behind the action or other relevant notes.
 
 ***************
 Landing Patches
