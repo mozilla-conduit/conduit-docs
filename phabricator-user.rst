@@ -419,6 +419,9 @@ available to revision authors:
   Revisions" dashboard.
 * **Abandon Revision**: Indicates that a revision is no longer
   relevant and should be disregarded.
+* **Reopen Revision**: Reopens a revision that has been closed (either
+  manually or automatically) after a revision landed.
+* **Reclaim Revision**: Reopens a revision that has been abandoned.
 
 There is another action available specifically to nonauthors:
 
