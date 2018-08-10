@@ -95,8 +95,6 @@ automatically filled in, you'll have to pick one.
    <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Administration>`_
    or let us know in #phabricator on irc.mozilla.org.
 
-.. todo:: are we really keeping 2FA on?
-
 You now have a Phabricator account set up and can both submit and
 review patches (along with using the other Phabricator applications).
 
