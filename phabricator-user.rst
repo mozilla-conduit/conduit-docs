@@ -159,13 +159,42 @@ Then create a revision in Differential::
 
     $ arc diff
 
-You'll be taken to an editor to add extra details.  Your commit
-message will be used to create the revision title and summary.  The
-other fields are optional.  This includes ``Bug``; omitting a bug
-ID will result in the revision not being associated with a bug, and
-thus it will automatically be public.  If set, the field must contain
-a valid BMO bug number.  Note that mozilla-central commit policy
-currently `requires a bug number
+You'll be taken to an editor to add extra details.  Here is an example
+of input to ``arc diff`` from a real revision
+(https://phabricator.services.mozilla.com/D1298):
+
+.. code-block:: text
+
+    heartbeat: check all backing services in heartbeat (Bug 1442911).
+
+    Summary:
+
+    Before this change /__heartbeat__ was only checking for connectivity
+    to Phabricator. We now also check the database, transplant, redis
+    (cache), s3, and auth0. The /__heartbeat__ endpoint now returns a more
+    useful response, indicating which services are unhealthy when a 500
+    response is sent.
+
+    Test Plan:
+
+    invoke test passes, new tests added. Ran lando api locally with
+    services in both healthy and unhealthy states and observed the response
+    from /__heartbeat__
+
+    Reviewers: glob, imadueme
+
+    Subscribers:
+
+    Bug #: 1442911
+
+Your commit message will be used to create the revision title and
+summary.  The other fields are optional.  If they are given in a
+similar format in the commit message, the fields will be prepopulated
+here as well.  This includes ``Bug``; omitting a bug ID will result in
+the revision not being associated with a bug, and thus it will
+automatically be public.  If set, the field must contain a valid BMO
+bug number.  Note that mozilla-central commit policy currently
+`requires a bug number
 <https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Committing_Rules_and_Responsibilities#Checkin_comment>`_
 in the commit message under most circumstances.
 
@@ -180,8 +209,14 @@ You may want to add a reviewer, which should be a Phabricator username
 (e.g. ``mcote``).  You can also add one or more subscribers, who will
 be notified of updates to the revision.
 
+Note that the commits to be included in this revision are present in
+the comment at the bottom of the text.  You can use this to double-check
+that you are sending the correct commits to Phabricator.
+
 After you exit the editor, the revision should be created.  Here's
-example output using our development instance::
+example output from a different revision on our development instance:
+
+.. code-block:: text
 
     Created a new Differential revision:
             Revision URI: https://mozphab.dev.mozaws.net/D29
@@ -231,7 +266,9 @@ not able to, you can use the ``--update`` option to specify a
 revision ID.
 
 After the update has been submitted, you will see output similar to
-this::
+this:
+
+.. code-block:: text
 
     Updated an existing Differential revision:
             Revision URI: https://mozphab.dev.mozaws.net/D29
@@ -351,7 +388,9 @@ If you have a stack of revisions (see above section
 will be applied as well.  Note that if you are pulling down a stack of
 revisions but have a different commit currently checked out than was
 used as the parent of the first commit, you will get warnings like
-this::
+this:
+
+.. code-block:: text
 
     This diff is against commit a237e16c2f716f55a22d53279f3914a231ae4051, but
     the commit is nowhere in the working copy. Try to apply it against the
