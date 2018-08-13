@@ -27,6 +27,7 @@ Table of Contents
    phabricator-user
    lando-user
    walkthrough
+   arcanist-user
    mozreview-migration-guide
    contributing
 
