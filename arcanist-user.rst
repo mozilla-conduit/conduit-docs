@@ -10,10 +10,13 @@ Mozilla's `Engineering Workflow
 <https://wiki.mozilla.org/Engineering_Workflow>`_ team has created a
 custom command-line tool, :ref:`moz-phab <using-moz-phab>`, which has
 better support for submitting, updating, and applying series of
-commits.  This document is an older guide for Arcanist, the official
-upstream command-line interface to Phabricator.  It may still be
-useful for those who do not frequently submit patches for review, or
-who rarely author nor review series of commits.
+commits.  It also has conveniences for parsing bug IDs and reviewers
+from commit-message summaries or specifying them as command-line
+options.
+
+This document is an older guide for Arcanist, the official upstream
+command-line interface to Phabricator.  It may still be useful for
+those who do not frequently submit patches for review.
 
 This guide is a quick overview of how to submit, update, and apply
 patches with Arcanist.  The official Phabricator documentation also
@@ -90,13 +93,14 @@ in the commit message under most circumstances.
 Unfortunately, a limitation of Phabricator currently prevents us from
 seeding this field with a bug ID from the commit message (at least
 from the first line, where bug IDs are usually mentioned in
-mozilla-central changesets); however, we will be able to work around
-this in our upcoming `custom command-line interface
-<https://wiki.mozilla.org/Engineering_Workflow/Road_Map#Better_support_for_commit_series_in_Phabricator_and_Lando>`_.
+mozilla-central changesets).  Note that we have worked around these
+restrictions in :ref:`moz-phab <using-moz-phab>`.
 
 You may want to add a reviewer, which should be a Phabricator username
 (e.g. ``mcote``).  You can also add one or more subscribers, who will
-be notified of updates to the revision.
+be notified of updates to the revision.  Again, we cannot parse these
+out of the commit summary with Arcanist, but :ref:`moz-phab
+<using-moz-phab>` supports this.
 
 Note that the commits to be included in this revision are present in
 the comment at the bottom of the text.  You can use this to double-check
@@ -245,7 +249,8 @@ The relationship will be created when ``arc diff`` is run.
 Unfortunately there is not currently a way to see a combined diff of
 all the stacked commits together without applying the commits
 locally.  Also, when you update any commits, you'll need to run ``arc
-diff .^`` for each child commit as well.
+diff .^`` for each child commit as well.  This was the primary purpose of
+writing :ref:`moz-phab <using-moz-phab>`.
 
 See also this `blog post
 <https://smacleod.ca/posts/commit-series-with-phabricator/>`_ on

@@ -40,8 +40,8 @@ available.
 
 We have also created a custom command-line tool, `moz-phab
 <https://github.com/mozilla-conduit/review>`_, which is a wrapper
-around Arcanist, providing better support for submitting series of
-commits than Arcanist does by itself.
+around Arcanist, providing several conveniences, including better
+support for submitting series of commits than Arcanist does by itself.
 
 .. _quick-start:
 
@@ -152,9 +152,10 @@ Using moz-phab
 --------------
 
 moz-phab is a custom command-line tool that improves on Arcanist's
-limited support for commit series.  We recommend using it if you
-regularly construct stacks of dependent changesets, or even if you
-regularly review them.
+limited support for commit series, as well as providing other
+conveniences, including the parsing of bug IDs and reviewers from
+commit messages.  We recommend using it if you regularly construct
+stacks of dependent changesets, or even if you regularly review them.
 
 Installation and usage instructions are in the repository's `README.md
 <https://github.com/mozilla-conduit/review/blob/master/README.md>`_.
@@ -166,9 +167,9 @@ for details.
 Using Arcanist
 --------------
 
-If you only sporadically submit code for review, or you rarely work
-with series of commits, you may want to use Arcanist.  We have a short
-:doc:`user guide </arcanist-user>` available.
+If you only sporadically submit code for review, you may want to use
+Arcanist.  We have a short :doc:`user guide </arcanist-user>`
+available.
 
 .. _reviewing-patches:
 
