@@ -103,6 +103,8 @@ automatically filled in, you'll have to pick one.
 You now have a Phabricator account set up and can both submit and
 review patches (along with using the other Phabricator applications).
 
+.. _setting-up-arcanist:
+
 Setting up Arcanist
 ===================
 
@@ -112,8 +114,9 @@ our custom command-line tool, `moz-phab
 official tool, Arcanist.  ``moz-phab`` currently requires Arcanist, so you
 will likely need to install it to use Phabricator.
 
-Installing the tool depends on your operating system; see the
-`Arcanist Quick Start guide
+Installing the tool depends on your operating system.  For Windows 10,
+we have our own :doc:`installation guide </arcanist-windows>`.  For
+other OSes, see the official `Arcanist Quick Start guide
 <https://phabricator.services.mozilla.com/book/phabricator/article/arcanist_quick_start/>`_.
 Note that in Windows 10, you can use the Linux-based instructions if
 you are running the `Windows Subsystem for Linux

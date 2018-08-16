@@ -19,8 +19,10 @@ command-line interface to Phabricator.  It may still be useful for
 those who do not frequently submit patches for review.
 
 This guide is a quick overview of how to submit, update, and apply
-patches with Arcanist.  The official Phabricator documentation also
-has an `Arcanist Quick Start guide
+patches with Arcanist.  Note that we have written our own :doc:`guide
+</arcanist-windows>` for installing Arcanist on Windows 10.  The
+official Phabricator documentation also has an `Arcanist Quick Start
+guide
 <https://phabricator.services.mozilla.com/book/phabricator/article/arcanist_quick_start/>`_,
 a larger `Arcanist User Guide
 <https://phabricator.services.mozilla.com/book/phabricator/article/arcanist/>`_,
