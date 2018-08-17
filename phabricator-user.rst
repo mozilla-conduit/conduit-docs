@@ -43,14 +43,11 @@ We have also created a custom command-line tool, `moz-phab
 around Arcanist, providing several conveniences, including better
 support for submitting series of commits than Arcanist does by itself.
 
-.. _quick-start:
+.. _creating-account:
 
-***********
-Quick Start
-***********
-
+*******************
 Creating an Account
-===================
+*******************
 
 The first step toward submitting a patch via Phabricator is to create
 an account.  Visit our Phabricator instance at
@@ -105,8 +102,9 @@ review patches (along with using the other Phabricator applications).
 
 .. _setting-up-arcanist:
 
+*******************
 Setting up Arcanist
-===================
+*******************
 
 The preferred and officially supported ways to submit patches are via
 our custom command-line tool, `moz-phab
@@ -146,13 +144,14 @@ This will prompt you to visit a page on our Phabricator instance, which
 will generate an API key for you to paste into your terminal.  The
 key is stored in the file ``.arcrc`` in your home directory.
 
+******************
 Submitting Patches
-==================
+******************
 
 .. _using-moz-phab:
 
 Using moz-phab
---------------
+==============
 
 moz-phab is a custom command-line tool that improves on Arcanist's
 limited support for commit series, as well as providing other
@@ -168,7 +167,7 @@ improvements landing regularly.  See the current `bug list
 for details.
 
 Using Arcanist
---------------
+==============
 
 If you only sporadically submit code for review, you may want to use
 Arcanist.  We have a short :doc:`user guide </arcanist-user>`
@@ -176,8 +175,9 @@ available.
 
 .. _reviewing-patches:
 
+*****************
 Reviewing Patches
-=================
+*****************
 
 Performing a review involves two steps, both of which are technically
 optional but will usually be used together:
@@ -212,8 +212,9 @@ communicate what they should do next.  These actions include:
   ideally a substitute reviewer or other action for the author to
   take, if there are no longer sufficient reviewers on the revision.
 
+**********************
 Other Revision Actions
-======================
+**********************
 
 In addition to the review-related actions mentioned in the
 :ref:`reviewing-patches` section, there are other common tasks that are
@@ -353,13 +354,13 @@ between bugs and revisions, and basic review-status mirroring.
 Identity
 ========
 
-As described in the :ref:`quick-start` guide, the main way to log into
-Phabricator is via BMO's auth delegation.  A user logging into
-Phabricator is taken to BMO to log in as usual and will be redirected
-back to Phabricator if the login succeeds.  If this is the first time
-the user has logged into Phabricator, they will be prompted to create
-an account.  New users will also be prompted to enter a separate
-username, unlike BMO.
+As described in the :ref:`creating-account` section, the main way to
+log into Phabricator is via BMO's auth delegation.  A user logging
+into Phabricator is taken to BMO to log in as usual and will be
+redirected back to Phabricator if the login succeeds.  If this is the
+first time the user has logged into Phabricator, they will be prompted
+to create an account.  New users will also be prompted to enter a
+separate username, unlike BMO.
 
 Authorization
 =============
@@ -404,12 +405,12 @@ also be obsoleted.
 Using git-cinnabar
 ******************
 
-We have developed a special version of ``arc`` for ``git-cinnabar``. It has 
-been created to map commit hashes between Mercurial and Git. This allows 
-patching a Diff which has been created with ``git-cinnabar`` into Mercurial 
+We have developed a special version of ``arc`` for ``git-cinnabar``. It has
+been created to map commit hashes between Mercurial and Git. This allows
+patching a Diff which has been created with ``git-cinnabar`` into Mercurial
 repository and vice versa.
 
-Please install the Arcanist as described in :ref:`quick-start` 
+Please install Arcanist as described in :ref:`setting-up-arcanist`
 with a change to the location of the arcanist repository::
 
 
