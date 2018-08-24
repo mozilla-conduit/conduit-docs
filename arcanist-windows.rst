@@ -89,11 +89,17 @@ They should work for Git Bash and PowerShell as well.
 
           arc set-config editor "\"C:\Program Files (x86)\Notepad++\notepad++.exe\" -multiInst -nosession"
 
-      * Sublime:
+      * Sublime Text 2:
 
       .. code-block:: text
 
           arc set-config editor "\"C:\Program Files\Sublime Text 2\sublime_text.exe\" -w -n"
+
+      * Sublime Text 3:
+
+      .. code-block:: text
+
+          arc set-config editor "\"C:\Program Files\Sublime Text 3\subl.exe\" -w -n"
 
 #. At this point, you should be all set up. Follow the rest of the
    standard instructions for :ref:`configuring Arcanist
