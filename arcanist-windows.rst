@@ -46,7 +46,7 @@ They should work for Git Bash and PowerShell as well.
    (including MozillaBuild) exclusively, you can add this to
    ``~/.bash_profile``::
 
-     export PATH="$PATH:/c/php:~/phabricator/arcanist/bin"
+     export PATH="${PATH}:/c/php:${HOME}/phabricator/arcanist/bin"
 
    You can also add it to your user's path so that it is also
    recognized in PowerShell and other apps.  The easiest way to find
