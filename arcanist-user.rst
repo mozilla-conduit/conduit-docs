@@ -225,7 +225,7 @@ checked-out Mercurial commit, run the following::
     $ arc diff .^
 
 To set the parent-child relationship, you can use the UI or put a
-directive into the child's commit message.  To use the UI, go to your
+directive into the child's revision summary.  To use the UI, go to your
 first commit, choose "Edit Related Revisions..." from the right-hand
 menu, then "Edit Child Revisions".  Your child revision may be
 suggested, or you can enter an ID into the search box, including the
@@ -243,10 +243,25 @@ shows the current stack of revisions:
    :align: center
    :alt: Screenshot of a revision stack
 
-You can also add ``Depends on D<revision ID>`` to the child's commit
-message, replacing ``<revision ID>`` with the ID of the parent
+You can also add ``Depends on D<revision ID>`` to the child's revision
+summary, replacing ``<revision ID>`` with the ID of the parent
 revision. (This needs to be its own paragraph, separated by a blank line.)
-The relationship will be created when ``arc diff`` is run.
+The relationship will be created when ``arc diff`` is run.::
+
+    ... commit comment ...                                                                                                                                                                                                                                                       
+
+    Summary:
+
+    Depends on D4244
+
+    Test Plan:
+
+    Reviewers: ...
+
+    Subscribers:
+
+    Bug #: ...
+
 
 Unfortunately there is not currently a way to see a combined diff of
 all the stacked commits together without applying the commits
