@@ -120,6 +120,11 @@ Note that in Windows 10, you can use the Linux-based instructions if
 you are running the `Windows Subsystem for Linux
 <https://msdn.microsoft.com/en-us/commandline/wsl/about>`_.
 
+If you use `git-cinnabar <https://github.com/glandium/git-cinnabar>`_,
+you will need to use our `fork of Arcanist <https://github.com/mozilla-conduit/arcanist>`_,
+which maps SHAs from Git to Mercurial so that patches can be correctly
+applied locally regardless of the VCS from which they were submitted.
+
 On Ubuntu, you will need PHP and an extension installed: ``sudo apt
 install php php-curl``.  Then clone the Arcanist repos as described in
 the Quick Start guide linked above, and add the ``arcanist/bin/``
