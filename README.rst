@@ -34,3 +34,7 @@ docs, which will be written to ``_build/html``.
 These docs are hosted at https://moz-conduit.readthedocs.io/en/latest/
 and are automatically built from the `source repo
 <https://github.com/mozilla-conduit/conduit-docs>`_.
+
+File bugs in Bugzilla under `Conduit :: Documentation
+<https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Documentation>`_
+and submit patches via `Phabricator <https://phabricator.services.mozilla.com>`_.
