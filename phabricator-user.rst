@@ -396,15 +396,15 @@ redirects to Differential if the attachment link is clicked.
 Review flags
 ============
 
-For simplicity, and since Differential's review system does not map
-cleanly to BMO's review flags, r+ flags, and only r+ flags, are set on
-the stub attachment associated with a Differential revision when a
-Phabricator user performs an "Accept Revision" action.  The flag is
-removed if the reviewer later issues a "Request Changes" or a "Resign
-as Reviewer" action.  Similarly, all r+ flags are removed if the
-author selects any of the "Plan Changes", "Request Review", or
-"Abandon Revision" actions.  In the last case, the stub attachment is
-also be obsoleted.
+Review flags are not set on Differential stub attachments.  The
+difference in models between the two systems make any such mapping
+both difficult and potentially misleading, the requisite information
+is not exposed via Phabricator's Conduit API, and Phacility have
+informed us that Differential's models may be changing.
+
+We will, however, display some revision metadata in associated
+bugs; see `bug 1489706
+<https://bugzilla.mozilla.org/show_bug.cgi?id=1489706>`_.
 
 ******************
 Using git-cinnabar
