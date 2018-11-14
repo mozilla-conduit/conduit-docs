@@ -40,7 +40,7 @@ the revision ID, the author, the status of reviews, and the commit message.
 There is also a timeline of previous landing attempts, if any.
 
 *******************************
-Viewing a confidential revision
+Viewing a Confidential Revision
 *******************************
 
 Lando can view and land secure Phabricator revisions that you have access to.
@@ -52,7 +52,7 @@ token for your account.
 
 First, generate a Phabricator API token. Go to Settings -> Conduit API Tokens ->
 Generate Token. Keep this token secret and use it only for Lando. You cannot
-reuse a 'cli-' token; please generate a new API token (these start with 'api-').
+reuse a "cli-" token; please generate a new API token (these start with "api-").
 
 .. image:: images/phabricator-api-token-setup.png
    :align: center
@@ -69,8 +69,8 @@ Phabricator API token you generated here.
 
 Click save and then reload the secure revision page on Lando again.
 
-To delete an API token, check the 'Delete' checkbox on the settings modal and
-click save. Or you can simply Logout.
+To delete an API token, check the "Delete" checkbox on the settings modal and
+click save. Or you can simply log out.
 
 
 ******************
