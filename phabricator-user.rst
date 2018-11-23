@@ -131,8 +131,7 @@ the Quick Start guide linked above, and add the ``arcanist/bin/``
 directory to your path.  Note that you can also install the Arcanist
 apt package, but you may not get recent fixes and improvements.
 
-If your project does not currently have a ``.arcconfig`` checked into
-the its repository, you can create one locally, which should look like
+If your project does not currently have a ``.arcconfig`` checked into its repository, you can create one locally, which should look like
 this::
 
     {
