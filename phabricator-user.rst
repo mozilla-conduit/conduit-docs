@@ -174,8 +174,9 @@ for details.
 Using Arcanist
 ==============
 
-If you only sporadically submit code for review, you may want to use
-Arcanist.  We have a short :doc:`user guide </arcanist-user>`
+If you only sporadically submit code for review, you can use
+Arcanist by itself, although even for small patches moz-phab is generally
+easier to use.  We have a short :doc:`user guide </arcanist-user>`
 available.
 
 .. _reviewing-patches:
