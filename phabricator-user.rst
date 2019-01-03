@@ -247,7 +247,12 @@ There is another action available specifically to nonauthors:
 
 * **Commandeer Revision**: Allows you to take over a revision by
   becoming its author.  Note that the original author will no longer
-  be able to post updated diffs to the revision.
+  be able to post updated diffs to the revision. Note: Lando doesn't care
+  who owns the revision on Phabricator, but, it does care about the commit
+  author. When updating someone else's commit, you can use
+  ``hg commit --amend --user "Other Person <example@mozilla.com>"`` or
+  ``git commit --amend --author="Other Person <example@mozilla.com>"`` to set
+  the commit author information to the right person.
 
 After selecting an action, you must always hit the "Submit" button
 below.  You may optionally add a comment to indicate your reasoning
