@@ -12,9 +12,8 @@ stock Phabricator, much of `Phabricator's user documentation
 applicable.  Several sections are of particular interest.
 
 **Arcanist** is the command-line interface to Phabricator, mainly used
-to submit patches for review.  There is an `Arcanist Quick Start guide
-<https://phabricator.services.mozilla.com/book/phabricator/article/arcanist_quick_start/>`_,
-a larger `Arcanist User Guide
+to submit patches for review.  After `setting up Arcanist`_ you can
+read the `Arcanist User Guide
 <https://phabricator.services.mozilla.com/book/phabricator/article/arcanist/>`_,
 and a specific `guide to "arc diff"
 <https://phabricator.services.mozilla.com/book/phabricator/article/arcanist_diff/>`_
@@ -112,9 +111,13 @@ our custom command-line tool, `moz-phab
 official tool, Arcanist.  ``moz-phab`` currently requires Arcanist, so you
 will likely need to install it to use Phabricator.
 
-Installing the tool depends on your operating system.  For Windows 10,
-we have our own :doc:`installation guide </arcanist-windows>`.  For
-other OSes, see the official `Arcanist Quick Start guide
+Installing the tool depends on your operating system:
+
+* :doc:`Windows 10 Arcanist Installation Guide </arcanist-windows>`
+* :doc:`Linux Arcanist Installation Guide </arcanist-linux>`
+* :doc:`macOS Arcanist Installation Guide </arcanist-macos>`
+
+You can also read see the official `Arcanist Quick Start guide
 <https://phabricator.services.mozilla.com/book/phabricator/article/arcanist_quick_start/>`_.
 Note that in Windows 10, you can use the Linux-based instructions if
 you are running the `Windows Subsystem for Linux
@@ -124,20 +127,6 @@ If you use `git-cinnabar <https://github.com/glandium/git-cinnabar>`_,
 you will need to use our `fork of Arcanist <https://github.com/mozilla-conduit/arcanist>`_,
 which maps SHAs from Git to Mercurial so that patches can be correctly
 applied locally regardless of the VCS from which they were submitted.
-
-On Ubuntu, you will need PHP and an extension installed: ``sudo apt
-install php php-curl``.  Then clone the Arcanist repos as described in
-the Quick Start guide linked above, and add the ``arcanist/bin/``
-directory to your path.  Note that you can also install the Arcanist
-apt package, but you may not get recent fixes and improvements.
-
-If your project does not currently have a ``.arcconfig`` checked into
-the its repository, you can create one locally, which should look like
-this::
-
-    {
-      "phabricator.uri" : "https://phabricator.services.mozilla.com/"
-    }
 
 The next step is to authenticate Arcanist with our Phabricator
 installation.  From within your project's repository, run the

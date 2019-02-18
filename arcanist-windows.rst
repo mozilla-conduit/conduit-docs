@@ -1,6 +1,6 @@
-###################################
-Windows Arcanist Installation Guide
-###################################
+######################################
+Windows 10 Arcanist Installation Guide
+######################################
 
 The `official Windows installation guide
 <https://secure.phabricator.com/book/phabricator/article/arcanist_windows/>`_

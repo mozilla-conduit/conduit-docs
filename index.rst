@@ -28,6 +28,8 @@ Table of Contents
    lando-user
    walkthrough
    arcanist-windows
+   arcanist-linux
+   arcanist-macos
    arcanist-user
    mozreview-migration-guide
    contributing
