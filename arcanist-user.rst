@@ -54,7 +54,7 @@ Then create a revision in Differential::
     $ arc diff
 
 You'll be taken to an editor to add extra details.  Here is an example
-of input to ``arc diff`` from a real revisino
+of input to ``arc diff`` from a real revision
 (https://phabricator.services.mozilla.com/D1298):
 
 .. code-block:: text
