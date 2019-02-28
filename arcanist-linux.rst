@@ -30,8 +30,9 @@ if you use Ubuntu:
 
     sudo apt-get install php php-curl git
 
-Note Arcanist requires the ``ext-curl`` PHP extension, which is provied by
-the ``php-curl`` package on Ubuntu.
+Note Arcanist requires the ``ext-curl`` and other PHP extensions which may not be
+enabled by default on your Linux distro.  For example Ubuntu requires that you
+install the ``php-curl`` package, while Fedora also require the ``php-json``package.
 
 
 Install Arcanist
