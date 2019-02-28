@@ -32,7 +32,7 @@ if you use Ubuntu:
 
 Note Arcanist requires the ``ext-curl`` and other PHP extensions which may not be
 enabled by default on your Linux distro.  For example Ubuntu requires that you
-install the ``php-curl`` package, while Fedora also require the ``php-json``package.
+install the ``php-curl`` package, while Fedora also require the ``php-json`` package.
 
 
 Install Arcanist
