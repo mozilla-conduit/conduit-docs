@@ -34,21 +34,6 @@ Note Arcanist requires the ``ext-curl`` and other PHP extensions which may not b
 enabled by default on your Linux distro.  For example Ubuntu requires that you
 install the ``php-curl`` package, while Fedora also require the ``php-json`` package.
 
-
-Install Arcanist
-----------------
-
-#. Create a ``~/.mozbuild`` directory if it doesn't already exist and clone the
-   arcanist and phabricator library repositories:
-
-.. code-block:: bash
-
-    mkdir -p ~/.mozbuild
-    cd ~/.mozbuild
-    git clone https://github.com/phacility/arcanist.git
-    git clone https://github.com/phacility/libphutil.git
-
-
 Install moz-phab
 ----------------
 
@@ -66,20 +51,26 @@ Add arc and moz-phab to your PATH
 ---------------------------------
 
 Both `arc` and `moz-phab` need to be on the PATH in order for the scripts to
-work. Be aware the profile file varies between distros and shells
-(eg. ``~/.bashrc`` instead of ``~/.profile``)
+work.  We havn't installed `arc` yet but `moz-phab` will install it for us.
+Be aware the profile file varies between distros and shells (eg.
+``~/.bashrc`` instead of ``~/.profile``)
 
 1. Update your ``PATH`` to include arcanist and moz-phab:
 
 .. code-block:: bash
 
-    echo 'export PATH="$HOME/.mozbuild/arcanist/bin:$HOME/.mozbuild/moz-phab:$PATH"' >> ~/.profile
+    echo 'export PATH="$HOME/.mozbuild/moz-phab/arcanist/bin:$HOME/.mozbuild/moz-phab:$PATH"' >> ~/.profile
 
 2. Close and reopen your terminal program
 
-3. Ensure running `arc` and `moz-phab` both work:
+3. Run `moz-phab` to check that it's in the PATH and let it install `arc`
 
 .. code-block:: bash
 
-    arc -h
     moz-phab -h
+    
+4. Ensure running `arc` also works:
+
+.. code-block:: bash
+    
+    arc -h
