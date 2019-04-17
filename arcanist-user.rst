@@ -12,7 +12,7 @@ custom command-line tool, :ref:`moz-phab <using-moz-phab>`, which has
 better support for submitting, updating, and applying series of
 commits.  It also has conveniences for parsing bug IDs and reviewers
 from commit-message summaries or specifying them as command-line
-options.
+options. It is installing Arcanist in a special directory.
 
 This document is an older guide for Arcanist, the official upstream
 command-line interface to Phabricator.  It may still be useful for
