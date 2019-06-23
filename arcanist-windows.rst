@@ -47,6 +47,10 @@ They should work for Git Bash and PowerShell as well.
    ``~/.bash_profile``::
 
      export PATH="${PATH}:/c/php:${HOME}/phabricator/arcanist/bin"
+     
+   If you don't have ``.bash_profile`` file on your system, you can 
+   create a blank text file named ``.bash_profile`` in your user folder: 
+   ``C:\Users\<username>\``.
 
    You can also add it to your user's path so that it is also
    recognized in PowerShell and other apps.  The easiest way to find
