@@ -9,7 +9,7 @@ instructions to getting Arcanist working on Windows 10 in a
 `MozillaBuild <https://wiki.mozilla.org/MozillaBuild>`_ environment.
 They should work for Git Bash and PowerShell as well.
 
-#. Install the Microsoft Visual C++ 2017 Redistributable (x64) if you
+#. Install the Microsoft Visual C++ 2015-2019 Redistributable (x64) if you
    don't already have it. You can see if you have it through Settings
    -> Apps -> App & features. It is available at
    https://support.microsoft.com/en-ca/help/2977003/the-latest-supported-visual-c-downloads
