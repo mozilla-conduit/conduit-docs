@@ -3,7 +3,7 @@ Phabricator Workflow Walk-through
 *********************************
 
 **IMPORTANT:** Make sure you have :ref:`set up Phabricator <creating-account>` and
-:ref:`set up Arcanist <setting-up-arcanist>` before proceeding!
+:ref:`set up MozPhab <setting-up-mozphab>` before proceeding!
 
 While some developers use bookmarks/etc to track changes, for this this guide we will
 use just repository heads: no bookmarks or labels.  This essentially means "just

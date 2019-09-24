@@ -27,9 +27,9 @@ Table of Contents
    phabricator-user
    lando-user
    walkthrough
-   arcanist-windows
-   arcanist-linux
-   arcanist-macos
+   mozphab-windows
+   mozphab-linux
+   mozphab-macos
    arcanist-user
    mozreview-migration-guide
    contributing

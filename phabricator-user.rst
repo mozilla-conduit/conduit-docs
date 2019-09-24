@@ -11,16 +11,6 @@ stock Phabricator, much of `Phabricator's user documentation
 <https://phabricator.services.mozilla.com/book/phabricator/>`_ is fully
 applicable.  Several sections are of particular interest.
 
-**Arcanist** is the command-line interface to Phabricator, mainly used
-to submit patches for review.  After `setting up Arcanist`_ you can
-read the `Arcanist User Guide
-<https://phabricator.services.mozilla.com/book/phabricator/article/arcanist/>`_,
-and a specific `guide to "arc diff"
-<https://phabricator.services.mozilla.com/book/phabricator/article/arcanist_diff/>`_
-available in the main Phabricator documentation.  There are also other
-related articles available under the `Application User Guides
-<https://phabricator.services.mozilla.com/book/phabricator/>`_.
-
 **Differential** is Phabricator's code-review tool.  Useful articles
 include the `Differential User Guide
 <https://phabricator.services.mozilla.com/book/phabricator/article/differential/>`_,
@@ -37,10 +27,10 @@ Differential revision being created or updated).  There is a short
 <https://phabricator.services.mozilla.com/book/phabricator/article/herald/>`_
 available.
 
-We have also created a custom command-line tool, `moz-phab
-<https://github.com/mozilla-conduit/review>`_, which is a wrapper
-around Arcanist, providing several conveniences, including better
-support for submitting series of commits than Arcanist does by itself.
+**MozPhab** is a custom command-line tool, `moz-phab
+<https://github.com/mozilla-conduit/review>`_, which communicates to Phabricator's
+API, providing several conveniences, including support for submitting series of
+commits.
 
 .. _creating-account:
 
@@ -99,40 +89,28 @@ automatically filled in, you'll have to pick one.
 You now have a Phabricator account set up and can both submit and
 review patches (along with using the other Phabricator applications).
 
-.. _setting-up-arcanist:
+.. _setting-up-mozphab:
 
-*******************
-Setting up Arcanist
-*******************
+******************
+Setting up MozPhab
+******************
 
 The preferred and officially supported ways to submit patches are via
 our custom command-line tool, `moz-phab
-<https://github.com/mozilla-conduit/review>`_, and Phabricator's
-official tool, Arcanist.  ``moz-phab`` currently requires Arcanist, so you
-will likely need to install it to use Phabricator.
+<https://github.com/mozilla-conduit/review>`_. ``moz-phab`` currently requires Arcanist
+and will install it automatically.
 
 Installing the tool depends on your operating system:
 
-* :doc:`Windows 10 Arcanist Installation Guide </arcanist-windows>`
-* :doc:`Linux Arcanist Installation Guide </arcanist-linux>`
-* :doc:`macOS Arcanist Installation Guide </arcanist-macos>`
+* :doc:`Windows 10 MozPhab Installation Guide </mozphab-windows>`
+* :doc:`Linux MozPhab Installation Guide </mozphab-linux>`
+* :doc:`macOS MozPhab Installation Guide </mozphab-macos>`
 
-You can also read see the official `Arcanist Quick Start guide
-<https://phabricator.services.mozilla.com/book/phabricator/article/arcanist_quick_start/>`_.
-Note that in Windows 10, you can use the Linux-based instructions if
-you are running the `Windows Subsystem for Linux
-<https://msdn.microsoft.com/en-us/commandline/wsl/about>`_.
-
-If you use `git-cinnabar <https://github.com/glandium/git-cinnabar>`_,
-you will need to use our `fork of Arcanist <https://github.com/mozilla-conduit/arcanist>`_,
-which maps SHAs from Git to Mercurial so that patches can be correctly
-applied locally regardless of the VCS from which they were submitted.
-
-The next step is to authenticate Arcanist with our Phabricator
+The next step is to authenticate MozPhab with our Phabricator
 installation.  From within your project's repository, run the
 following command::
 
-    $ arc install-certificate
+    $ moz-phab install-certificate
 
 This will prompt you to visit a page on our Phabricator instance, which
 will generate an API key for you to paste into your terminal.  The
@@ -159,13 +137,6 @@ Note that moz-phab is in active development, with new features and
 improvements landing regularly.  See the current `bug list
 <https://bugzilla.mozilla.org/buglist.cgi?product=Conduit&component=Review%20Wrapper&resolution=--->`_
 for details.
-
-Using Arcanist
-==============
-
-If you only sporadically submit code for review, you may want to use
-Arcanist.  We have a short :doc:`user guide </arcanist-user>`
-available.
 
 .. _reviewing-patches:
 
@@ -256,34 +227,21 @@ For Mercurial repositories, in particular `mozilla-central
 :doc:`Lando </lando-user>`.  See :ref:`getting-in-touch` to have
 repositories added to Phabricator and Lando.
 
-If you cannot use Lando, e.g. for :ref:`confidential revisions
-<confidential-revision-warning>`, we highly recommend manually landing
+If you cannot use Lando, we highly recommend manually landing
 to mozilla-inbound without the use of ``arc patch`` nor ``arc land``,
 both of which add metadata to the commit message which may not be
 desirable, such as the list of revision subscribers.
 
-If you do not have the commit applied locally (e.g. you are landing
-someone else's patch), you can use the "Download Raw Diff" link, found
-in the right-hand menu on the revision, and apply it as usual with
-``patch``.  If you have Arcanist installed, you could also run ``arc
-patch --nocommit --skip-dependencies D<revision id>``.  This will
-apply the diff locally but not commit it, nor will it apply any
-parents.  You can then commit it manually, using the revision title as
-the first line of the commit message and the Summary field as the body.
+If you do not have the commit applied locally and you are landing someone else's
+patch, you can run ``moz-phab patch D<revision id> --nobranch`` to apply the
+commit(s) locally (``--nobranch`` ensures the commits are applied to the current
+branch/head). You can then push the commits as usual.
 
-Conversely, for repositories other than mozilla-central, the
-amendments Phabricator makes to commit messages may in fact be useful.
-If you are the author of a patch, you can use ``arc land``, which will
-update the commit message with revision metadata, including reviewers
-and revision URL, rebase your commit onto the master branch (Git) or
-default head (Mercurial), and automatically push the commits to the
-destination repository.
-
-If you are landing someone else's patch, you can run ``arc patch
-D<revision id> --nobranch`` first to apply the commit(s) locally
-(``--nobranch`` ensures the commits are applied to the current
-branch/head).  You can then run ``arc land`` or just push the commits
-as usual.
+You could also run ``moz-phab patch --appy-to here --nocommit --skip-dependencies
+D<revision id>`` instead. This will apply the diff locally but not commit it,
+nor will it apply any parents.  You can then commit it manually, using the
+revision title as the first line of the commit message and the Summary field
+as the body.
 
 ****************
 Our Installation
@@ -399,25 +357,6 @@ informed us that Differential's models may be changing.
 We will, however, display some revision metadata in associated
 bugs; see `bug 1489706
 <https://bugzilla.mozilla.org/show_bug.cgi?id=1489706>`_.
-
-******************
-Using git-cinnabar
-******************
-
-We have developed a special version of ``arc`` for ``git-cinnabar``. It has
-been created to map commit hashes between Mercurial and Git. This allows
-patching a Diff which has been created with ``git-cinnabar`` into Mercurial
-repository and vice versa.
-
-Please install Arcanist as described in :ref:`setting-up-arcanist`
-with a change to the location of the arcanist repository::
-
-
-    $ mkdir somewhere/
-    $ cd somewhere/
-    somewhere/ $ git clone https://github.com/phacility/libphutil.git
-    somewhere/ $ git clone https://github.com/mozilla-conduit/arcanist.git
-                                              ^^^^^^^^^^^^^^^
 
 .. _getting-in-touch:
 
