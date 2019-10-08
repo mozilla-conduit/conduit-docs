@@ -47,9 +47,13 @@ Install MozPhab
    for current session. Add it to your profile file (``~/.bashrc`` or equivalent)
    to keep the ``$PATH`` changed ::
 
-   export PATH=~/.local/bin:$PATH
+.. code-block:: bash
+
+   $ export PATH=~/.local/bin:$PATH
 
 3. Ensure running ``arc`` and ``moz-phab`` both work::
+
+.. code-block:: bash
 
    $ moz-phab arc -h
    $ moz-phab -h
