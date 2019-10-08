@@ -37,7 +37,7 @@ Install MozPhab
 ---------------
 1. Call ``pip3 install --user MozPhab``
 
-   This will install ``moz-pab`` into your home directory, under ``~/.local/bin``.
+   This will install ``moz-phab`` into your home directory, under ``~/.local/bin``.
 
    Please note the first ``moz-phab`` call will install the Arcanist and its requirements
    under the ``~/.mozbuild/mozphab`` directory.
