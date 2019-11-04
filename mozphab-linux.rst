@@ -4,12 +4,12 @@ Linux MozPhab Installation Guide
 
 MozPhab can be installed from PyPI.
 
-This requires Git, Python 3.5 or higher with ``pip`` and PHP.
+This requires Git, Python 3.5 or higher with ``pip3`` and PHP.
 
 Ensure PHP and git are installed
 --------------------------------
 
-Verify that both php and git are installed and working when run from the
+Verify that pip3, php and git are installed and working when run from the
 command line:
 
 .. code-block:: bash
@@ -18,6 +18,8 @@ command line:
     git version 2.20.1
     $ php --version
     PHP 7.1.23 (cli) (built: Nov  7 2018 18:20:35) ( NTS )
+    $ pip3 --version
+    pip 18.1 from /usr/lib/python3/dist-packages/pip (python 3.7)
 
 The versions you have do not need match the above.
 
@@ -26,7 +28,7 @@ if you use Ubuntu:
 
 .. code-block:: bash
 
-    $ sudo apt-get install php php-curl git
+    $ sudo apt-get install php php-curl git python3-pip
 
 Note Arcanist requires the ``ext-curl`` and other PHP extensions which may not be
 enabled by default on your Linux distro.  For example Ubuntu requires that you
