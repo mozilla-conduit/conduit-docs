@@ -53,6 +53,11 @@ Then create a revision in Differential::
 
     $ arc diff
 
+If arcanist is installed through MozPhab::
+
+    $ moz-phab arc diff
+
+
 You'll be taken to an editor to add extra details.  Here is an example
 of input to ``arc diff`` from a real revision
 (https://phabricator.services.mozilla.com/D1298):
@@ -153,6 +158,11 @@ Here's an example that adds another line to our test file from above::
 Submitting the change to Differential is the same command::
 
     $ arc diff
+
+If arcanist is installed through MozPhab::
+
+    $ moz-phab arc diff
+
 
 Your editor will again be opened, but this time the format is much
 simpler.  You just need to provide a change summary, which again is
