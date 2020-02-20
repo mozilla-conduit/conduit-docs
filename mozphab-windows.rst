@@ -51,7 +51,6 @@ Upgrading a previous non-pip install of moz-phab to use pip
 
 #. Run ``pip3 install MozPhab``.
 
-#. You may need to restart your shell for your changes to take effect. You can check using ``moz-phab version`` - if it works, you've successfully switched to ``moz-phab`` using ``pip``.
+#. Ensure that your non-pip install of ``moz-phab`` is removed or renamed
 
-#. At this point, you should be all set up. If you have already installed ``moz-phab``
-   without using ``pip``, you should remove the file.
+#. You may need to restart your shell for your changes to take effect. You can check using ``moz-phab version`` - if it works, you've successfully switched to ``moz-phab`` using ``pip``.
