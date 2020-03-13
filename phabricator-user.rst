@@ -237,7 +237,7 @@ patch, you can run ``moz-phab patch D<revision id> --nobranch`` to apply the
 commit(s) locally (``--nobranch`` ensures the commits are applied to the current
 branch/head). You can then push the commits as usual.
 
-You could also run ``moz-phab patch --appy-to here --nocommit --skip-dependencies
+You could also run ``moz-phab patch --apply-to here --nocommit --skip-dependencies
 D<revision id>`` instead. This will apply the diff locally but not commit it,
 nor will it apply any parents.  You can then commit it manually, using the
 revision title as the first line of the commit message and the Summary field
