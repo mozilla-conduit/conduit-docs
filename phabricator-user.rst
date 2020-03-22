@@ -29,7 +29,7 @@ available.
 
 **MozPhab** is a custom command-line tool, `moz-phab
 <https://github.com/mozilla-conduit/review>`_, which communicates to Phabricator's
-API, providing several conveniences, including support for submitting series of
+API, providing several conveniences, including support for submitting a series of
 commits.
 
 .. _creating-account:
@@ -48,7 +48,7 @@ at the top of any page.
    :alt: Screenshot of Phabricator login button
 
 You'll be taken to another page with a single button, which will in
-turn take you to `bugzilla.mozilla.org
+the turn takes you to `bugzilla.mozilla.org
 <https://bugzilla.mozilla.org>`_ (BMO) to log in or register a new
 account.
 
@@ -57,10 +57,10 @@ account.
    :alt: Screenshot of BMO login button
 
 After you've done so, you'll be redirected back to Phabricator, where
-you will be prompted to create a new Phabricator account.  On this
+you will be prompted to create a new Phabricator account.  In this
 form, the "Real Name" field is taken from your BMO account's real
 name.  If your BMO real name also contains the ``:<ircnick>``
-convention, that is, a username starting with a colon, it will be
+a convention, that is, a username starting with a colon, it will be
 extracted and placed into the Phabricator account's username field.
 Common surrounding punctuation, e.g. parentheses (``()``) and brackets
 (``[]``) will be stripped out and discarded.  If you've used some
@@ -78,7 +78,7 @@ Note that the username field is mandatory, so if you didn't have one
 automatically filled in, you'll have to pick one.
 
 .. important:: The username field is unique.  You should pick a
-   clearly identifiable username, particularly if you will be doing
+   clearly, identifiable username, particularly if you will be doing
    code reviews, such as your nick on irc.mozilla.org.  If your nick
    is not available but you think it should be because, for example,
    you are at least somewhat known in the Mozilla community, please
@@ -160,15 +160,14 @@ suggestions for your overall design", etc.).
 At this point you can click the "Submit" button at the bottom;
 however, this will leave the review open.  You might want to do this
 if you have some preliminary comments and plan to give a more detailed
-review later.  Usually you will want to use the "Add Action..."
+review later.  Usually, you will want to use the "Add Action..."
 dropdown to signal a clear intent to the revision author and to
 communicate what they should do next.  These actions include:
 
 * **Accept Revision**: The diff is good as it is and can be landed, or
   at most requires small changes that do not need re-review.
 * **Request Changes**: The diff needs some changes before it can be
-  landed.  Specific change requests should be left as comments, as
-  described above.
+  landed.  Specific change requests should be left as comments, as described above.
 * **Resign as Reviewer**: This indicates that you are not able to or
   do not wish to review this change.  You will be removed from the
   reviewers list and hence will not get notifications of updates to
@@ -187,8 +186,7 @@ accomplished through the actions dropdown.  The following are
 available to revision authors:
 
 * **Request Review**: Asks the reviewer(s) to take another look at the
-  revision.  If it is not already, the revision status will be changed
-  to "Needs Review".  If a reviewer has previously accepted the
+  revision.  If it is not already, the revision status will be changed to "Needs Review".  If a reviewer has previously accepted the
   revision, their review status will be changed to "Accepted Prior
   Diff" (the icon for this status is similar to the "Accepted"
   checkmark, but it is grey instead of green).
@@ -206,13 +204,9 @@ available to revision authors:
 There is another action available specifically to nonauthors:
 
 * **Commandeer Revision**: Allows you to take over a revision by
-  becoming its author.  Note that the original author will no longer
-  be able to post updated diffs to the revision. Note: Lando doesn't care
-  who owns the revision on Phabricator, but, it does care about the commit
-  author. When updating someone else's commit, you can use
+  becoming its author.  Note that the original author will no longer be able to post updated diffs to the revision. Note: Lando doesn't care who owns the revision on Phabricator, but, it does care about the commit author. When updating someone else's commit, you can use
   ``hg commit --amend --user "Other Person <example@mozilla.com>"`` or
-  ``git commit --amend --author="Other Person <example@mozilla.com>"`` to set
-  the commit author information to the right person.
+  ``git commits --amend --author="Other Person <example@mozilla.com>"`` to set the commit author information to the right person.
 
 After selecting an action, you must always hit the "Submit" button
 below.  You may optionally add a comment to indicate your reasoning
@@ -222,9 +216,9 @@ behind the action or other relevant notes.
 Landing Patches
 ***************
 
-For Mercurial repositories, in particular `mozilla-central
+For Mercurial repositories, in particular, `mozilla-central
 <https://hg.mozilla.org/mozilla-central>`_, we highly recommend using
-:doc:`Lando </lando-user>`.  See :ref:`getting-in-touch` to have
+:doc:`Lando </lando-user>`.  See ref:`getting-in-touch` to have
 repositories added to Phabricator and Lando.
 
 If you cannot use Lando, we highly recommend manually landing
@@ -237,7 +231,7 @@ patch, you can run ``moz-phab patch D<revision id> --nobranch`` to apply the
 commit(s) locally (``--nobranch`` ensures the commits are applied to the current
 branch/head). You can then push the commits as usual.
 
-You could also run ``moz-phab patch --apply-to here --nocommit --skip-dependencies
+You could also run ``moz-phab patch --apply-to here --no-commit --skip-dependencies
 D<revision id>`` instead. This will apply the diff locally but not commit it,
 nor will it apply any parents.  You can then commit it manually, using the
 revision title as the first line of the commit message and the Summary field
@@ -249,11 +243,11 @@ Our Installation
 
 Mozilla's Phabricator instance is a stock installation, with a small patch
 applied, and some custom extensions.  The patch and extensions are
-intentionally small in scope and are limited to supporting integration
+intentionally small in scope and are limited to supporting the integration
 points with `bugzilla.mozilla.org <https://bugzilla.mozilla.org>`_
 ("BMO").
 
-See :ref:`conduit-repos` for the location of our source code.
+See ref:`conduit-repos` for the location of our source code.
 
 ************
 Applications
@@ -272,7 +266,7 @@ Herald, described above, we support or are trialing several other
 applications and utilities:
 
 * **Dashboards** allow users to set up custom pages to display useful
-  information, for example assigned reviews.  It seems somewhat
+  information, for example, assigned reviews.  It seems somewhat
   limited, though, so we'll evaluate how useful it really is.
 
 * **Pholio** is an application for reviewing mock-ups and designs.
@@ -280,7 +274,7 @@ applications and utilities:
   your input on whether Pholio is useful.
 
 * **Badges**, **macros**, and **tokens**: These are mostly bits of
-  whimsy that might enhance user experience by providing some levity.
+  whimsy that might enhance the user experience by providing some levity.
   If they're fun, or at least harmless, we'll leave them; if they
   become annoying or distracting, we may remove them.
 
@@ -290,7 +284,7 @@ disabled in a Phabricator installation.  However, at the moment
 Mozilla has no defined engineering processes for post-commit review of
 Firefox and related code, so we do not recommend its use, at least
 until such time as a process is deemed necessary and implemented.
-Audit may, of course, be useful to projects hosted on the Mozilla
+An audit may, of course, be useful to projects hosted on the Mozilla
 Phabricator instance outside of Firefox.
 
 .. _bmo-integration:
@@ -324,7 +318,7 @@ Authorization
 
 If a bug has one or more security groups applied to it, that is, it
 has restricted visibility, any Differential revisions associated with
-it are similarly restricted in visibility.  This will initially only
+it are similarly restricted invisibility.  This will initially only
 apply to Firefox security groups, that is, groups with names matching
 ``*core-security*``.  Any revision associated with a bug restricted
 via other groups, e.g. infra, is visible only to the author and
@@ -349,9 +343,9 @@ Review flags
 ============
 
 Review flags are not set on Differential stub attachments.  The
-difference in models between the two systems make any such mapping
+the difference in models between the two systems make any such mapping
 both difficult and potentially misleading, the requisite information
-is not exposed via Phabricator's Conduit API, and Phacility have
+is not exposed via Phabricator's Conduit API, and Facility have
 informed us that Differential's models may be changing.
 
 We will, however, display some revision metadata in associated
@@ -386,21 +380,16 @@ the main components:
   extensions, we may move them to
   `bugzilla.mozilla.org :: Extensions: PhabBugz
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=bugzilla.mozilla.org&component=Extensions%3A%20PhabBugz>`_
-  depending on where the problem exists in our code.  Also note that, as
-  discussed in :ref:`bmo-integration`, we are strictly limiting
-  customizations to our instance.  We may, however, work with upstream
-  in fixing important issues.
+  depending on where the problem exists in our code.  Also note that, as discussed in ref:`bmo-integration`, we are strictly limiting customizations to our instance.  We may, however, work with upstream in fixing important issues.
 * `Lando
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Lando>`_:
   For issues with Lando, the UI/API for requesting and monitoring commit landings.
 * `Transplant
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Transplant>`_:
-  For issues with Transplant, the backend service which takes landing requests from Lando and
-  pushes them to the relevant repository.
+  For issues with Transplant, the backend service which takes landing requests from Lando and pushes them to the relevant repository.
 * `General
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=General>`_:
-  Feel free to file issues here if you aren't sure where they should
-  go.  We'll triage them as needed.
+  Feel free to file issues here if you aren't sure where they should go.  We'll triage them as needed.
 
 **************************
 Frequently Asked Questions
