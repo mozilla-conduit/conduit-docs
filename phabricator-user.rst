@@ -59,7 +59,7 @@ account.
 After you've done so, you'll be redirected back to Phabricator, where
 you will be prompted to create a new Phabricator account.  On this
 form, the "Real Name" field is taken from your BMO account's real
-name.  If your BMO real name also contains the ``:<ircnick>``
+name.  If your BMO real name also contains the ``:<matrixnick>``
 convention, that is, a username starting with a colon, it will be
 extracted and placed into the Phabricator account's username field.
 Common surrounding punctuation, e.g. parentheses (``()``) and brackets
@@ -79,12 +79,12 @@ automatically filled in, you'll have to pick one.
 
 .. important:: The username field is unique.  You should pick a
    clearly identifiable username, particularly if you will be doing
-   code reviews, such as your nick on irc.mozilla.org.  If your nick
+   code reviews, such as your nick on chat.mozilla.org.  If your nick
    is not available but you think it should be because, for example,
    you are at least somewhat known in the Mozilla community, please
    `file a bug
    <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Administration>`_
-   or let us know in #phabricator on irc.mozilla.org.
+   or let us know in `#conduit <https://chat.mozilla.org/#/room/#conduit:mozilla.org>`_ on chat.mozilla.org.
 
 You now have a Phabricator account set up and can both submit and
 review patches (along with using the other Phabricator applications).
@@ -365,10 +365,8 @@ Getting in Touch
 ****************
 
 If you have questions about our Phabricator installation, you can find
-the team in #phabricator on irc.mozilla.com and mozilla.slack.com.
-The team also hangs out in #conduit, which is our channel for
-development discussions.  Feel free to join if you'd like to help us
-out!
+the team in #conduit on chat.mozilla.org and mozilla.slack.com.
+Feel free to join if you'd like to help us out!
 
 Issues can be filed in Bugzilla under the Conduit product.  These are
 the main components:
