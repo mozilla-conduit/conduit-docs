@@ -4,7 +4,7 @@ macOS MozPhab Installation Guide
 
 MozPhab can be installed from PyPI
 
-This requires Git, Python 3.5 or higher with `pip`, and PHP.
+This requires Git and Python 3.5 or higher with `pip`.
 
 Install Python3 using Homebrew
 ------------------------------
@@ -19,12 +19,8 @@ Install MozPhab
 ---------------
 1. Call ``pip3 install MozPhab``
 
-   Please note the first ``moz-phab`` call will install the Arcanist and its requirements
-   under the ``~/.mozbuild/mozphab`` directory.
-
-2. Ensure running ``arc`` and ``moz-phab`` both work:
+2. Ensure running ``moz-phab`` works:
 
 .. code-block:: bash
 
-    $ moz-phab arc -h
     $ moz-phab -h
