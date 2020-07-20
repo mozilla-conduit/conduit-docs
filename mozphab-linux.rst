@@ -4,7 +4,7 @@ Linux MozPhab Installation Guide
 
 MozPhab can be installed from PyPI.
 
-This requires Git and Python 3.5 or higher with ``pip3``.
+This requires Git and Python 3.6 or higher with ``pip3``.
 
 Ensure the requirements are installed
 -------------------------------------
