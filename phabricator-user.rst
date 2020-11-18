@@ -358,6 +358,31 @@ We will, however, display some revision metadata in associated
 bugs; see `bug 1489706
 <https://bugzilla.mozilla.org/show_bug.cgi?id=1489706>`_.
 
+Mozilla Phabricator Emails
+==========================
+
+.. image:: images/phab-email-new.png
+   :align: center
+   :alt: Screenshot of an example new Phabricator email
+
+There's a new Phabricator email system currently in development
+with the following improvements over the existing system:
+
+* There's less noise per email, and fewer emails are sent per event.
+* Relevant contextual information is now more clearly available.
+* Each email is visually structured to be helpful and fast to read.
+
+To opt into trying these new emails:
+
+1. Open `Phabricator <https://phabricator.services.mozilla.com/>`_.
+2. Click on your avatar in the top right, and click "Settings".
+3. On the left panel, click on "Email Delivery".
+4. Change "Email Notifications" to "Mozilla Notifications" and click "Save Changes".
+
+.. image:: images/phab-email-new-setting.png
+   :align: center
+   :alt: Screenshot of the setting to enable the new Phabricator emails
+
 .. _getting-in-touch:
 
 ****************
