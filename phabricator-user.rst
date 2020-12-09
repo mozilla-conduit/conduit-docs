@@ -381,9 +381,19 @@ To opt into trying these new emails:
 
 .. image:: images/phab-email-new-setting.png
    :align: center
-   :alt: Screenshot of the setting to enable the new Phabricator emails
+   :alt: Screenshot of the setting to enable Mozilla Phabricator emails
 
 .. _getting-in-touch:
+
+.. important:: This is **beta quality** software! There are features from the original Phabricator
+   emails that aren't (yet) replicated to the new implementation, including:
+
+   * `Herald rules to notify via email aren't used <https://bugzilla.mozilla.org/show_bug.cgi?id=1681602>`_.
+   * `The affected repo of each patch isn't shown <https://bugzilla.mozilla.org/show_bug.cgi?id=1631868>`_.
+   * `Subscribers aren't being emailed <https://bugzilla.mozilla.org/show_bug.cgi?id=1666369>`_.
+
+   You can see the list of issues blocking the production rollout of Mozilla Notifications
+   `here <https://bugzilla.mozilla.org/show_bug.cgi?id=1667229>`_.
 
 ****************
 Getting in Touch
