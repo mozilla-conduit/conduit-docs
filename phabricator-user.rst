@@ -358,8 +358,9 @@ We will, however, display some revision metadata in associated
 bugs; see `bug 1489706
 <https://bugzilla.mozilla.org/show_bug.cgi?id=1489706>`_.
 
+**************************
 Mozilla Phabricator Emails
-==========================
+**************************
 
 .. image:: images/phab-email-new.png
    :align: center
