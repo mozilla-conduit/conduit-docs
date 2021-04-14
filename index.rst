@@ -32,6 +32,7 @@ Table of Contents
    mozphab-macos
    arcanist-user
    mozreview-migration-guide
+   mozphab-telemetry
    contributing
 
 ##################

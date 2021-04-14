@@ -18,7 +18,7 @@ release = u'0'
 
 language = None
 
-exclude_patterns = ['_build']
+exclude_patterns = ['_build', 'venv']
 
 pygments_style = 'sphinx'
 
