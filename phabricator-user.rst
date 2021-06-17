@@ -366,35 +366,32 @@ Mozilla Phabricator Emails
    :align: center
    :alt: Screenshot of an example new Phabricator email
 
-There's a new Phabricator email system currently in development
-with the following improvements over the existing system:
+Mozilla has an internal email implementation that
+integrates with Phabricator and has the following benefits:
 
 * There's less noise per email, and fewer emails are sent per event.
 * Relevant contextual information is now more clearly available.
 * Each email is visually structured to be helpful and fast to read.
 
-To opt into trying these new emails:
+These emails are used by default. However, if you'd prefer to opt-out
+and use the standard Phabricator Emails, you can adjust your settings:
 
 1. Open `Phabricator <https://phabricator.services.mozilla.com/>`_.
 2. Click on your avatar in the top right, and click "Settings".
 3. On the left panel, click on "Email Delivery".
-4. Change "Email Notifications" to "Mozilla Notifications" and click "Save Changes".
+4. Change the value of the "Email Notifications" dropdown box and click "Save Changes".
 
 .. image:: images/phab-email-new-setting.png
    :align: center
    :alt: Screenshot of the setting to enable Mozilla Phabricator emails
 
-.. _getting-in-touch:
-
-.. important:: This is **beta quality** software! There are features from the original Phabricator
-   emails that aren't (yet) replicated to the new implementation, including:
+.. note:: There are features from the original Phabricator emails that aren't (yet) replicated
+   to the new implementation, including:
 
    * `Herald rules to notify via email aren't used <https://bugzilla.mozilla.org/show_bug.cgi?id=1681602>`_.
-   * `The affected repo of each patch isn't shown <https://bugzilla.mozilla.org/show_bug.cgi?id=1631868>`_.
-   * `Subscribers aren't being emailed <https://bugzilla.mozilla.org/show_bug.cgi?id=1666369>`_.
+   * `X- headers are missing, most notably X-Phabricator-Stamps <https://bugzilla.mozilla.org/show_bug.cgi?id=1667308>`_.
 
-   You can see the list of issues blocking the production rollout of Mozilla Notifications
-   `here <https://bugzilla.mozilla.org/show_bug.cgi?id=1667229>`_.
+.. _getting-in-touch:
 
 ****************
 Getting in Touch
