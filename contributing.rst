@@ -79,11 +79,18 @@ The source code for most Conduit applications lives on GitHub.
   contains our Conduit extensions to Phabricator, which mainly relate
   to integration with BMO.  As with Phabricator itself, these are
   written in `PHP <https://php.net>`_.
+  
+* `review <https://github.com/mozilla-conduit/review>`_ contains the
+  ``moz-phab`` command-line client to interact with phabricator. It is
+  written in Python.
 
 * `mozphab <https://github.com/mozilla-services/mozphab>`_ contains
   the deployment scripts and configuration for our Phabricator
   installation.  The files are a mixture of Python, PHP, shell
-  scripts, and config files.
+  scripts, and config files. Contrary to what
+  the name might suggest, does *not* contain the ``moz-phab`` client, which is in
+  the  `mozilla-conduit/review <https://github.com/mozilla-conduit/review>`_
+  repository
 
 * `bmo-extensions
   <https://github.com/mozilla-conduit/bmo-extensions>`_ is a
