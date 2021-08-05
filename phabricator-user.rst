@@ -114,7 +114,9 @@ following command::
 
 This will prompt you to visit a page on our Phabricator instance, which
 will generate an API key for you to paste into your terminal.  The
-key is stored in the file ``.arcrc`` in your home directory.
+key is stored in the file ``.arcrc`` in your home directory on macOS or
+Linux, and on Windows it is in ``%APPDATA%`` (likely the ``AppData\Roaming``
+subfolder of your user directory).
 
 ******************
 Submitting Patches
