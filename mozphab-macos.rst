@@ -8,7 +8,7 @@ This requires Git and Python 3.6 or higher with `pip`.
 
 .. note::
 
-    There isn't a `moz-phab` wheel for all macOS systems, so you may need to install Rust so that `pip` can build `moz-phab` itself.
+    There isn't a `moz-phab` wheel for all macOS systems, so you may need to install Rust so that `pip` can build `moz-phab` itself. Users of Mac computers with Apple silicon may need to ensure that Python version 3.9.1 or newer is installed to run `moz-phab` scripts with Python natively.
 
 Install Python3 using Homebrew
 ------------------------------
