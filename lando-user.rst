@@ -130,7 +130,7 @@ results:
 .. note:: Lando pages do not currently automatically refresh; you will
           have to reload them manually to see updates.  There are a couple
           bugs open to fix this, such as `bug 1460364
-          <https://bugzilla.mozilla.org/show_bug.cgi?id=1460364>`.
+          <https://bugzilla.mozilla.org/show_bug.cgi?id=1460364>`_.
 
 If the landing failed, an error message will be displayed.  This error
 may represent a problem with the revision, e.g. a merge conflict.  In
