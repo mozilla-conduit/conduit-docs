@@ -358,6 +358,14 @@ We will, however, display some revision metadata in associated
 bugs; see `bug 1489706
 <https://bugzilla.mozilla.org/show_bug.cgi?id=1489706>`_.
 
+***************
+Uplift Requests
+***************
+
+Uplift requests are submitted as regular review request on Phabricator.
+See `the Release Management guide <https://wiki.mozilla.org/Release_Management/Requesting_an_Uplift>`_
+for more details on how to submit an uplift request.
+
 **************************
 Mozilla Phabricator Emails
 **************************
