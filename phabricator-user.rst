@@ -432,10 +432,6 @@ the main components:
 * `Lando
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Lando>`_:
   For issues with Lando, the UI/API for requesting and monitoring commit landings.
-* `Transplant
-  <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Transplant>`_:
-  For issues with Transplant, the backend service which takes landing requests from Lando and
-  pushes them to the relevant repository.
 * `General
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=General>`_:
   Feel free to file issues here if you aren't sure where they should

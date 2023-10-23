@@ -93,10 +93,6 @@ The source code for most Conduit applications lives on GitHub.
 * `conduit-docs <https://github.com/mozilla-conduit/conduit-docs>`_
   contains the source for the docs you are reading now.
 
-* `autoland-transplant <https://github.com/mozilla-conduit/autoland-transplant>`_
-  is a tool that automatically lands patches from one Mercurial tree to
-  another.
-
 * `suite <https://github.com/mozilla-conduit/suite>`_
   allows you to connect and run all above services in a local development
   environment.
