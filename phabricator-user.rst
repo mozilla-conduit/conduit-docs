@@ -97,10 +97,14 @@ Setting up MozPhab
 
 The preferred and officially supported ways to submit patches are via
 our custom command-line tool, `moz-phab
-<https://github.com/mozilla-conduit/review>`_. ``moz-phab`` currently requires Arcanist
-and will install it automatically.
+<https://github.com/mozilla-conduit/review>`_.
 
-Installing the tool depends on your operating system:
+If you're working out of mozilla-central, the easiest way to install
+`moz-phab` is::
+
+    $ ./mach install-moz-phab
+
+Otherwise, installing the tool depends on your operating system:
 
 * :doc:`Windows 10 MozPhab Installation Guide </mozphab-windows>`
 * :doc:`Linux MozPhab Installation Guide </mozphab-linux>`
