@@ -135,7 +135,7 @@ the parsing of bug IDs and reviewers from commit messages.  We
 recommend using it if you regularly construct stacks of dependent
 changesets, or even if you regularly review them.
 
-Installation and usage instructions are in the repository's `README.md
+Usage instructions are in the repository's `README.md
 <https://github.com/mozilla-conduit/review/blob/master/README.md>`_.
 Note that moz-phab is in active development, with new features and
 improvements landing regularly.  See the current `bug list
