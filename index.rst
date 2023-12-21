@@ -30,7 +30,6 @@ Table of Contents
    mozphab-windows
    mozphab-linux
    mozphab-macos
-   arcanist-user
    mozreview-migration-guide
    mozphab-telemetry
    contributing

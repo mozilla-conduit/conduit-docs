@@ -125,11 +125,11 @@ Submitting Patches
 Using moz-phab
 ==============
 
-moz-phab is a custom command-line tool that improves on Arcanist's
-limited support for commit series, as well as providing other
-conveniences, including the parsing of bug IDs and reviewers from
-commit messages.  We recommend using it if you regularly construct
-stacks of dependent changesets, or even if you regularly review them.
+moz-phab is a custom command-line tool that provides support for
+commit series, as well as providing other conveniences, including
+the parsing of bug IDs and reviewers from commit messages.  We
+recommend using it if you regularly construct stacks of dependent
+changesets, or even if you regularly review them.
 
 Installation and usage instructions are in the repository's `README.md
 <https://github.com/mozilla-conduit/review/blob/master/README.md>`_.
@@ -227,11 +227,6 @@ For Mercurial repositories, in particular `mozilla-central
 :doc:`Lando </lando-user>`.  See :ref:`getting-in-touch` to have
 repositories added to Phabricator and Lando.
 
-If you cannot use Lando, we highly recommend manually landing
-to mozilla-inbound without the use of ``arc patch`` nor ``arc land``,
-both of which add metadata to the commit message which may not be
-desirable, such as the list of revision subscribers.
-
 If you do not have the commit applied locally and you are landing someone else's
 patch, you can run ``moz-phab patch D<revision id> --nobranch`` to apply the
 commit(s) locally (``--nobranch`` ensures the commits are applied to the current
@@ -247,8 +242,8 @@ as the body.
 Our Installation
 ****************
 
-Mozilla's Phabricator instance is a stock installation, with a small patch
-applied, and some custom extensions.  The patch and extensions are
+Mozilla's Phabricator instance is a fork with a few small patches
+applied, and some custom extensions.  The patches and extensions are
 intentionally small in scope and are limited to supporting integration
 points with `bugzilla.mozilla.org <https://bugzilla.mozilla.org>`_
 ("BMO").
