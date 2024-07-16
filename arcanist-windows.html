@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Windows 10 Arcanist Installation Guide &mdash; Mozilla Conduit 0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+
+<!-- RTD Extra Head -->
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2021-06-17T21:20:46Z", "builder": "sphinx", "canonical_url": null, "commit": "b9684c0a", "docroot": "/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "arcanist-windows", "programming_language": "words", "project": "moz-conduit", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {}, "theme": "sphinx_rtd_theme", "user_analytics_code": "", "version": "stable"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Mozilla Conduit
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                stable
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="phabricator-user.html">Mozilla Phabricator User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lando-user.html">Lando User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="walkthrough.html">Phabricator Workflow Walk-through</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mozphab-windows.html">Windows 10 MozPhab Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mozphab-linux.html">Linux MozPhab Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mozphab-macos.html">macOS MozPhab Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arcanist-user.html">Arcanist User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mozreview-migration-guide.html">Migrating from MozReview to Phabricator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mozphab-telemetry.html">MozPhab Data Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Conduit</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mozilla Conduit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Windows 10 Arcanist Installation Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/mozilla-conduit/conduit-docs/blob/1717111/arcanist-windows.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="windows-10-arcanist-installation-guide">
+<h1>Windows 10 Arcanist Installation Guide<a class="headerlink" href="#windows-10-arcanist-installation-guide" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference external" href="https://secure.phabricator.com/book/phabricator/article/arcanist_windows/">official Windows installation guide</a>
+for Arcanist is a bit confusing and vague.  Here are step-by-step
+instructions to getting Arcanist working on Windows 10 in a
+<a class="reference external" href="https://wiki.mozilla.org/MozillaBuild">MozillaBuild</a> environment.
+They should work for Git Bash and PowerShell as well.</p>
+<ol class="arabic">
+<li><p class="first">Install the Microsoft Visual C++ 2015-2019 Redistributable (x64) if you
+don’t already have it. You can see if you have it through Settings
+-&gt; Apps -&gt; App &amp; features. It is available at
+<a class="reference external" href="https://support.microsoft.com/en-ca/help/2977003/the-latest-supported-visual-c-downloads">https://support.microsoft.com/en-ca/help/2977003/the-latest-supported-visual-c-downloads</a>
+(vc_redist.x64.exe).</p>
+</li>
+<li><p class="first">Install PHP. The latest should work, e.g. PHP 7.2, VC15 x64 Non
+Thread Safe, from <a class="reference external" href="https://windows.php.net/download/">https://windows.php.net/download/</a>. Download the
+Zip. Unzip it somewhere; the following instructions presume C:\PHP.</p>
+</li>
+<li><p class="first">Copy php.ini-development to php.ini in that same directory.</p>
+</li>
+<li><p class="first">Edit php.ini. The Arcanist docs say to remove the leading <code class="docutils literal notranslate"><span class="pre">;</span></code>
+before <code class="docutils literal notranslate"><span class="pre">;extension=php_curl.dll</span></code>. In PHP 7.2, this line is
+just <code class="docutils literal notranslate"><span class="pre">;extension=curl</span></code>. Then find the line <code class="docutils literal notranslate"><span class="pre">;extension_dir</span> <span class="pre">=</span>
+<span class="pre">&quot;ext&quot;</span></code> and change it to <code class="docutils literal notranslate"><span class="pre">extension_dir</span> <span class="pre">=</span> <span class="pre">&quot;C:\PHP\ext&quot;</span></code>.</p>
+</li>
+<li><p class="first">Run <code class="docutils literal notranslate"><span class="pre">C:\PHP\php.exe</span> <span class="pre">-i</span></code> to verify that it is working. You should see
+“curl” listed in the Configuration section.</p>
+</li>
+<li><p class="first">If you don’t have Git already installed (note that it is not
+currently packaged with MozillaBuild), you’ll need to grab it from
+<a class="reference external" href="https://git-scm.com/download/win">https://git-scm.com/download/win</a> and install it.</p>
+</li>
+<li><p class="first">Clone the libphutil and arcanist Git repositories somewhere. These
+docs presume a subdirectory, <code class="docutils literal notranslate"><span class="pre">phabricator</span></code>, in your home directory,
+e.g. <code class="docutils literal notranslate"><span class="pre">C:\Users\myuser\phabricator</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir phabricator
+<span class="nb">cd</span> phabricator
+git clone https://github.com/phacility/libphutil.git
+git clone https://github.com/phacility/arcanist.git
+</pre></div>
+</div>
+<p>Replace the last URL with
+<code class="docutils literal notranslate"><span class="pre">https://github.com/mozilla-conduit/arcanist</span></code> if you are using
+git-cinnabar.</p>
+</li>
+<li><p class="first">Add <code class="docutils literal notranslate"><span class="pre">arc</span></code> and <code class="docutils literal notranslate"><span class="pre">php</span></code> to your user’s path. If you use MSYS
+(including MozillaBuild) exclusively, you can add this to
+<code class="docutils literal notranslate"><span class="pre">~/.bash_profile</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">&quot;$</span><span class="si">{PATH}</span><span class="s2">:/c/php:$</span><span class="si">{HOME}</span><span class="s2">/phabricator/arcanist/bin&quot;</span>
+</pre></div>
+</div>
+<p>If you don’t have <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> file on your system, you can
+create a blank text file named <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> in your user folder:
+<code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;username&gt;\</span></code>.</p>
+<p>You can also add it to your user’s path so that it is also
+recognized in PowerShell and other apps.  The easiest way to find
+this setting is to type “environment variables” into the search bar
+at the bottom of the desktop, and select “Edit environment
+variables for your account”.  You can also get to it via the
+Control Panel &gt; All Control Panel Items &gt; System &gt; Advanced System
+Settings &gt; Environment Variables…</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Select the “Path” variable under “User variables for &lt;user&gt;”.</li>
+<li>Click “Edit…”</li>
+<li>Click “New”</li>
+<li>Add <code class="docutils literal notranslate"><span class="pre">C:\PHP</span></code></li>
+<li>Click “New”</li>
+<li>Add <code class="docutils literal notranslate"><span class="pre">%USERPROFILE%\phabricator\arcanist\bin</span></code></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">Verify this all works with <code class="docutils literal notranslate"><span class="pre">arc</span> <span class="pre">help</span></code>. You should see Arcanist’s
+usage instructions.</p>
+</li>
+<li><p class="first">Ensure you have an editor installed that has a “blocking mode” (not
+Notepad). MozillaBuild comes with vim, but there are other options,
+including Notepad++ and Sublime.</p>
+</li>
+<li><p class="first">Tell Arcanist about your editor:</p>
+<ol class="arabic">
+<li><p class="first">If you only use MSYS/MozillaBuild, you can just add <code class="docutils literal notranslate"><span class="pre">export</span>
+<span class="pre">EDITOR=/usr/bin/vim</span></code> to your <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code>.</p>
+</li>
+<li><p class="first">If you want to use vim but also want it available elsewhere
+(e.g. PowerShell), run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>arc set-config editor <span class="s2">&quot;\&quot;C:\Program Files\Git\usr\bin\vim.exe\&quot;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If you’d like to use another editor, replace the path in the
+above command with the path to that editor. For some editors,
+you may need other command line options, e.g.</p>
+<ul class="simple">
+<li>Notepad++:</li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>arc set-config editor &quot;\&quot;C:\Program Files (x86)\Notepad++\notepad++.exe\&quot; -multiInst -nosession&quot;
+</pre></div>
+</div>
+<ul class="simple">
+<li>Sublime Text 2:</li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>arc set-config editor &quot;\&quot;C:\Program Files\Sublime Text 2\sublime_text.exe\&quot; -w -n&quot;
+</pre></div>
+</div>
+<ul class="simple">
+<li>Sublime Text 3:</li>
+</ul>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>arc set-config editor &quot;\&quot;C:\Program Files\Sublime Text 3\subl.exe\&quot; -w -n&quot;
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p class="first">At this point, you should be all set up. Follow the rest of the
+standard instructions for <span class="xref std std-ref">configuring Arcanist</span> to use our instance.</p>
+</li>
+</ol>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Mozilla
+      
+        <span class="commit">
+          Revision <code>b9684c0a</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: stable
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/stable/">stable</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//moz-conduit.readthedocs.io/_/downloads/en/stable/pdf/">pdf</a></dd>
+        
+          <dd><a href="//moz-conduit.readthedocs.io/_/downloads/en/stable/htmlzip/">html</a></dd>
+        
+          <dd><a href="//moz-conduit.readthedocs.io/_/downloads/en/stable/epub/">epub</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/moz-conduit/?fromdocs=moz-conduit">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/moz-conduit/?fromdocs=moz-conduit">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+   
+
+</body>
+</html>
