@@ -38,13 +38,13 @@ Install MozPhab
 2. If ``moz-phab`` has not been found, add your ``~/.local/bin`` directory to
    the ``PATH`` variable. Running this command in terminal will change the ``PATH``
    for current session. Add it to your profile file (``~/.bashrc`` or equivalent)
-   to keep the ``$PATH`` changed ::
+   to keep the ``$PATH`` changed :
 
 .. code-block:: bash
 
    $ export PATH=~/.local/bin:$PATH
 
-3. Ensure running ``moz-phab`` works::
+3. Ensure running ``moz-phab`` works:
 
 .. code-block:: bash
 

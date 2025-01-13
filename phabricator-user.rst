@@ -417,7 +417,7 @@ the main components:
 * `Documentation
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Documentation>`_:
   For issues with these and other project docs.
-* `Phabricator
+* `Phabricator Component in BMO
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Phabricator>`_:
   For issues with Phabricator, including our extensions (authentication, BMO integration,
   etc.) and with the upstream Phabricator product.  For bugs in our

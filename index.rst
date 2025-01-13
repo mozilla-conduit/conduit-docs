@@ -31,7 +31,6 @@ Table of Contents
    mozphab-windows
    mozphab-linux
    mozphab-macos
-   mozreview-migration-guide
    mozphab-telemetry
    contributing
 
