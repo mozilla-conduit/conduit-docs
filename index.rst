@@ -26,6 +26,7 @@ Table of Contents
 
    phabricator-user
    lando-user
+   lando-pushlog
    walkthrough
    mozphab-windows
    mozphab-linux
