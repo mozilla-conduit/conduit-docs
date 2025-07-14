@@ -2,6 +2,7 @@
 
 extensions = [
     'sphinx.ext.todo',
+    'sphinxcontrib.mermaid',
 ]
 
 templates_path = ['_templates']
