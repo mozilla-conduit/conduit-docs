@@ -115,7 +115,7 @@ The ``tag_mappings`` is similar to the configuration for branches, including the
 
 .. note:: The destination branch is named ``tags_destination_branch``.
 
-Mercurial's support for tags relies on inspecting information from the ``.hgtags`` on the tip every branch. git-cinnabar therefore updates this file in the repository when creating new tags. However, he Git and Mercurial histories MUST remain in sync with a bijective mapping between each SCM. As a result is not possible update the ``.hgtags`` file in any of the branches receiving new code from Git.
+Mercurial's support for tags relies on inspecting information from the ``.hgtags`` file on the tip every Mercurial branch. git-cinnabar therefore updates this file in the repository when creating new tags. However, he Git and Mercurial histories MUST remain in sync with a bijective mapping between each SCM. As a result is not possible update the ``.hgtags`` file in any of the branches receiving new code from Git.
 
 The solution to this problem is to use a separate branch in Mercurial repositories, dedicated to receiving tags. The Git-Hg-Sync worker will maintain a Git branch named after ``tags_destination_branch`` *locally* in the working repository, and push that branch to a matching one in Mercurial.
 
