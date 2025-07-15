@@ -125,7 +125,7 @@ Due to differences in the data models between Git and Mercurial, git-cinnabar re
 
 .. warning:: As the work copy of the ``tags_destination_branch`` is only present locally on the worker in Git, there might create bootstrapping issues if re-creating a work copy from scratch (see `bug 1962599 <https://bugzilla.mozilla.org/show_bug.cgi?id=1962599>`_ and `this comment <https://bugzilla.mozilla.org/show_bug.cgi?id=1973879#c4>`_). A manual fix would be to create the local ``tags_destination_branch`` from the Hg repo with the most recent updates to the tags.
 
-The ``tags_mappings`` also has an optional ``tag_message_suffix``, which allows to specify a templated addition to the message of the commit creatining a tag. The default is shown commented out in the configuration snippet above.
+The ``tags_mappings`` also has an optional ``tag_message_suffix``, which allows to specify a templated addition to the message of the commit creating a tag. The default is shown commented out in the configuration snippet above.
 
 
 Pulse (AMQP) Queue
