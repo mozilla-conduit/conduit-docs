@@ -26,11 +26,12 @@ Table of Contents
 
    phabricator-user
    lando-user
+   lando-pushlog
+   git-hg-sync
    walkthrough
    mozphab-windows
    mozphab-linux
    mozphab-macos
-   mozreview-migration-guide
    mozphab-telemetry
    contributing
 

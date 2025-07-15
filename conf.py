@@ -2,6 +2,7 @@
 
 extensions = [
     'sphinx.ext.todo',
+    'sphinxcontrib.mermaid',
 ]
 
 templates_path = ['_templates']
@@ -16,9 +17,9 @@ copyright = u'2017, Mozilla'
 version = u'0'
 release = u'0'
 
-language = None
+language = 'en'
 
-exclude_patterns = ['_build', 'venv']
+exclude_patterns = ['_build', 'venv', 'README.rst']
 
 pygments_style = 'sphinx'
 
@@ -26,4 +27,4 @@ todo_include_todos = False
 
 html_theme = 'default'
 
-html_static_path = ['_static']
+# html_static_path = ['_static']
