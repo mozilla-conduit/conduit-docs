@@ -8,7 +8,7 @@ Hg Sync component <https://github.com/mozilla-conduit/git-hg-sync/>`_ is in
 charge of syncing commits and tags from GitHub to HgMO.
 
 
-.. note:: `GitHub's Activity page <https://github.com/mozilla-firefox/firefox/activity>`_ looks similar to the PushLog. However it doesn't expose enough information for downstream use, nor does it provide for bespoke metadata and extension. Moreover, its `latency guarantees <https://docs.github.com/en/rest/activity/events?apiVersion=2022-11-28#list-repository-events>`_ are not suited to our requirements in terms of delays and deliver guarantees.
+.. note:: `GitHub's Activity page <https://github.com/mozilla-firefox/firefox/activity>`_ looks similar to the PushLog. However it doesn't expose enough information for downstream use, nor does it provide for bespoke metadata and extension. Moreover, its `latency guarantees <https://docs.github.com/en/rest/activity/events?apiVersion=2022-11-28#list-repository-events>`_ are not suited to our requirements in terms of delays and delivery guarantees.
 
 It relies on logic from `git-cinnabar <https://github.com/glandium/git-cinnabar>`_ to create and record a two-way map between Git and Hg commits. Due to the difference in branch and tags management between Git and HgMO, changes to one Git repository may be reflected as changes to various repository in HgMO. More often, this depends on which git branch the commits were added.
 
@@ -53,7 +53,7 @@ There are three main sections in the configuration file: ``tracked_repositories`
 
 
 Source Repositories
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 This is a list of repositories to monitor. The ``name`` is used for the working directory in the directory specified by ``clones.directory``.
 
@@ -61,7 +61,7 @@ This is a list of repositories to monitor. The ``name`` is used for the working 
 
 
 Branch Mapping
-^^^^^^^^^^^^^^
+--------------
 
 The ``branch_mappings`` expresses which branches in Git should be synced to which individual repository in HgMO. There can be multiple matches for a single branch. It is possible to use regular expressions when matching branch names (as suggested by the name of the ``branch_pattern``). If a match is found, and the RE contained capturing groups, they can be reused to build the destination URL and branch.
 
@@ -98,7 +98,7 @@ For large repositories such as Firefox, it can be useful to target ``mozilla-cen
 
 
 Tag Mapping
-^^^^^^^^^^^
+-----------
 
 The ``tag_mappings`` is similar to the configuration for branches, including the support for regular expressions. Unlike branches, where Git commits are converted and pushed to Mercurial by git-cinnabar, it is necessary to recreate tags.
 
@@ -115,7 +115,7 @@ The ``tag_mappings`` is similar to the configuration for branches, including the
 
 .. note:: The destination branch is named ``tags_destination_branch``.
 
-Mercurial's support for tags relies on inspecting information from the ``.hgtags`` file on the tip every Mercurial branch. git-cinnabar therefore updates this file in the repository when creating new tags. However, he Git and Mercurial histories MUST remain in sync with a bijective mapping between each SCM. As a result is not possible update the ``.hgtags`` file in any of the branches receiving new code from Git.
+Mercurial's support for tags relies on inspecting information from the ``.hgtags`` file `from every Mercurial head <https://wiki.mercurial-scm.org/Tag#How_do_tags_work_in_Mercurial.3F>`_. git-cinnabar therefore updates this file in the repository when creating new tags. However, he Git and Mercurial histories MUST remain in sync with a bijective mapping between each SCM. As a result is not possible update the ``.hgtags`` file in any of the branches receiving new code from Git.
 
 The solution to this problem is to use a separate branch in Mercurial repositories, dedicated to receiving tags. The Git-Hg-Sync worker will maintain a Git branch named after ``tags_destination_branch`` *locally* in the working repository, and push that branch to a matching one in Mercurial.
 
@@ -127,26 +127,29 @@ Due to differences in the data models between Git and Mercurial, git-cinnabar re
 
 The ``tags_mappings`` also has an optional ``tag_message_suffix``, which allows to specify a templated addition to the message of the commit creating a tag. The default is shown commented out in the configuration snippet above.
 
+.. _config_pulse_queue:
 
 Pulse (AMQP) Queue
-^^^^^^^^^^^^^^^^^^
+------------------
 
-The configuration file can also contain details about Pulse, in the ``pulse`` section. Conventional parameters are written in the configuration file, but anything sensitive is left to be passed via environment. The rest of this section summarises the conventional parameters and their values.
+Git Hg Sync creates a queue, and binds it to the Lando exchanges described in :ref:`the Lando Pushlog documentation <creating_pulse_exchanges>`.
 
-.. warning:: Do not check Pulse credentials configuration in to Git.
+The configuration file can also contain details about Pulse, in the ``pulse`` section. Conventional parameters are written in the configuration file, but anything sensitive is left to be passed via environment.
 
-.. note:: For more deployment flexibility, Pulse parameters are overridable via environment variables.
+.. note:: For more deployment flexibility, Pulse parameters are overridable via environment variables. For example, ``pulse.param`` can be overriden by the value in ``PULSE_PARAM``.
 
-`Pulse <https://wiki.mozilla.org/Auto-tools/Projects/Pulse>`_ is an AMQP pub/sub service based on RabbitMQ. However, it enforces a handful of additional rules. Most importantly:
+The parameters available in the ``pulse`` section are:
 
-* exchanges should be named ``exchange/<clientId>/<name>``,
-* they should be of type ``topic``, and
-* queues should be name ``queue/<clientId>/<name>``.
+* ``exchange``
+* ``host``
+* ``password`` (DO NOT STORE THIS IN SOURCE CONTROL)
+* ``port`` (needs to be an integer)
+* ``queue``
+* ``routing_key``
+* ``ssl`` (in the environment, needs to be an empty string to be False, otherwise True)
+* ``userid``
 
 
-In practice, service accounts are created using `PulseGuardian <https://pulseguardian.mozilla.org/>`_. Using those accounts, *Lando* is in charge of creating the exchange to which it publishes. Git Hg Sync, in turns, creates a queue, and binds it to the desired Lando exchange.
-
-For the sake of sanity, the service accounts were created (manually) and named based on a regular pattern. For each environment ``ENV`` (``dev``, ``stage``, ``prod``), the users are ``lando<ENV>`` and ``githgsync<ENV>``. The ``name`` of the queue is simply ``pushes``. The routing key, while optional, is set to ``gitpushes``.
 
 ******************
 Administrative CLI
@@ -159,14 +162,14 @@ Git-Hg-Sync offers a small management interface via a command line tool availabl
    git-hg-cli -c <CONFIG> [config|dequeue|fetchrepo]
 
 Inspecting the Run-time Configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------
 
-The ``config`` commands simply dumps a pretty-printed version of the live configuration to the console. This is a combination of the static information from the configuration file, as well as anything overriden from the environment.
+The ``config`` command simply dumps a pretty-printed version of the live configuration to the console. This is a combination of the static information from the configuration file, as well as anything overridden from the environment.
 
 Pre-fetching Working Directory Data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------
 
-The ``fetchrepo`` configuration is used to pre-populate or update the local working directory. It fetches all available commits from the Git source, as well as (optionally) any target Mercurial repo from the ``branch_mappings`` (as long as they do not contain dynamic replacement from regular expression capturing groups).
+The ``fetchrepo`` command is used to pre-populate or update the local working directory. It fetches all available commits from the Git source, as well as (optionally) any target Mercurial repo from the ``branch_mappings`` (as long as they do not contain dynamic replacement from regular expression capturing groups).
 
 This command takes a mandatory ``--repository-url`` option, which should be the full URL of one of the ``tracked_repositries``.
 
@@ -174,10 +177,16 @@ If the ``--fetch-all`` option is passed, all data from Mercurial will also be fe
 
 
 Removing an Erroneous Pulse Notification
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------
 
 It may happen that a Pulse notification leads to a terminally failing action. As Git Hg Sync processes messages strictly in order, this means that any further processing is blocked. This would result in the symptom that HgMO (particularly ``autoland`` for Firefox) is no longer synced from Git.
 
 .. warning:: Skipping a message may have unwanted consequences and require ad hoc fixes to be made to recover.
 
 The ``dequeue`` command can be used to remove the tip message from the queue. For safety, it requires explicit passing of the ``--repository-url`` and ``--push-id`` options. The values of those options is compared to what is present in the first notification in the queue. Only iff those details match will the message be removed.
+
+Ad hoc recovery techniques for a skipped message may include (but are not limited to):
+
+* doing nothing,
+* manually applying the changes, e.g., `bug 1968149 <https://bugzilla.mozilla.org/show_bug.cgi?id=1968149#c1>`_, or
+* :ref:`re-sending the notification from Lando <pulse_notify>`.

@@ -22,6 +22,8 @@ enabled. However, it is possible to disable it on a per-repository basis. This
 is useful for Mercurial repos, for which the HgMO pushlog is the source of
 truth.
 
+.. warning:: PushLog support is only partially implemented in Lando. No publicly accessible endpoint currently exists, and only `Pulse Notifications <pulse_notifications_>`_ are fully functional. See `bug 1940612 <https://bugzilla.mozilla.org/show_bug.cgi?id=1940612>`_.
+
 *******
 PushLog
 *******
@@ -118,11 +120,11 @@ The following properties are always present:
    the transaction is committed to Mercurial. Although, this is an
    implementation detail.
 
-   There is no guarantee of strict ordering between dates. i.e. the
+   There is no guarantee of strict ordering between dates, i.e. the
    ``date`` of push ID ``N + 1`` could be less than the ``date`` of push
    ID ``N``. Such is how clocks work.
 
-user
+``user``
    The string username that performed the push.
 
 .. _commit_objects:
@@ -202,20 +204,69 @@ A single message can represent any number of pushes to various `branches`. It ma
 
   {
     "type": "push",
-    "repo_url": "https://lando.moz.tools/FIXME/mozilla-firefox-nightly/pushlog",
+    "repo_url": "https://lando.moz.tools/FIXME/firefox-autoland/pushlog",
     "branches": { "BRANCH": "commit_id", ...}
     "tags": { "TAG": "commit_id", ...}
     "time": 14609750810,
     "push_id": 120040,
-    "user": "tlin@mozilla.com",
-    "push_json_url": "https://lando.moz.tools/FIXME/mozilla-firefox-nightly/pushlog/json-pushes?version=2&startID=120039&endID=120040",
-    "push_full_json_url": "https://lando.moz.tools/FIXME/mozilla-firefox-nightly/pushlog/json-pushes?version=2&full=1&startID=120039&endID=120040"
+    "user": "user@example.com",
+    "push_json_url": "https://lando.moz.tools/FIXME/firefox-autoland/pushlog/json-pushes?version=2&startID=120039&endID=120040",
+    "push_full_json_url": "https://lando.moz.tools/FIXME/firefox-autoland/pushlog/json-pushes?version=2&full=1&startID=120039&endID=120040"
   }
 
-.. todo::
 
-   pulseguardian exchange creation
+.. _creating_pulse_exchanges:
 
-.. todo::
+Creating Pulse Exchanges
+------------------------
 
-   lando pulse_notify
+`Pulse <https://wiki.mozilla.org/Auto-tools/Projects/Pulse>`_ is an AMQP pub/sub service based on RabbitMQ. However, it enforces a handful of additional rules. Most importantly:
+
+* exchanges should be named ``exchange/<clientId>/<name>``,
+* they should be of type ``topic``, and
+* queues should be name ``queue/<clientId>/<name>``.
+
+In practice, service accounts are created using `PulseGuardian <https://pulseguardian.mozilla.org/>`_. Using those accounts, *Lando* is in charge of creating the exchange to which it publishes. :ref:`Git Hg Sync <config_pulse_queue>`, in turns, creates a queue, and binds it to the desired Lando exchange.
+
+For the sake of sanity, the service accounts were created (manually) and named based on a regular pattern. For each environment ``ENV`` (``dev``, ``stage``, ``prod``), the users are ``lando<ENV>`` and ``githgsync<ENV>`` (e.g., ``landostage`` or ``githgsyncprod``). The ``name`` of the queue is simply ``pushes``. The routing key, while optional, is set to ``gitpushes``.
+
+.. warning:: Do not check Pulse credentials configuration in to Git.
+
+Lando will create the Exchange, if missing, when it first needs to publish to it. It could however be useful to create it ahead of time, as downstream consumers are not able to bind queues to an exchange until it exists. This can be done with the ``pulse_declare`` management command.
+
+::
+
+  $ lando pulse_declare
+  Declared exchange exchange/landodev/pushes on <AMQP Connection: pulse.mozilla.org:5671// using <SSLTransport: 10.24.10.110:39608 -> 35.212.137.69:5671 at 0x7f891f864320> at 0x7f891f823150>
+
+.. _pulse_notify:
+
+Manually Sending Notifications
+------------------------------
+
+The ``lando`` management CLI has a ``pulse_notify`` command allowing to send a notification for a given repository (``--repository <REPO-NAME>``) and push (``--push_id <ID>``). The state of the PushLog for a target repository can be first inspected with a couple of other ancillary commands: ``list_repos`` and ``pushlog_view``.
+ 
+::
+
+  $ lando list_repos
+  [...]
+  ff-test-dev: https://github.com/mozilla-conduit/ff-test (git)
+  $ lando pushlog_view --repository ff-test-dev --limit 1
+  Push 180 in ff-test-dev@dev (git) (notified: False)
+    Commit 02172852b4d274a8538e07fbd26e136c9c09607d in ff-test-dev@dev (git)
+  $ lando pulse_notify --repository ff-test-dev -push_id 180
+  Notifying for Push 180 in ff-test-dev@dev (git) ...
+  {"EnvVersion": "2.0", "Fields": {"msg": "Sending {'payload': {'type': 'push', 'repo_url': 'https://github.com/mozilla-conduit/ff-test', 'branches': {'dev': '02172852b4d274a8538e07fbd26e136c9c09607d'}, 'tags': {}, 'time': '1750389650', 'push_id': 180, 'user': 'omehani@mozilla.com', 'push_json_url': 'FIXME', 'push_full_json_url': 'FIXME'}} ..."}, "Hostname": "lando-landingworkergit-0", "Logger": "lando", "Pid": 358542, "Severity": 6, "Timestamp": 1752544021423447296, "Type": "lando.pulse.pulse"}
+
+By default, ``pulse_notify`` will refuse to send notifications for Pushes which (resp.)
+
+1. have already been notified, or
+2. are not the first un-notified Push.
+
+Both those safeguards can be overridden with command line options (resp.)
+
+1. ``--force-renotify``
+2. ``--force-out-of-order``
+
+.. warning:: There is a strong assumption that Pulse Notifications should only be delivered once. Re-sending notifications should be done carefully, and only when all implications of doing so are well understood. 
+
