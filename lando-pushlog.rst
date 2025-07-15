@@ -69,7 +69,7 @@ Here::
           "25f2a69ac7ac2919ef35c0b937b862fbb9e7e1f7"
         ],
         "date": 1227196396,
-        "user": "gszorc@mozilla.com"
+        "user": "user@example.com"
       }
     }
   }
