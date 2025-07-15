@@ -116,7 +116,7 @@ The following properties are always present:
    For pushes that take a very long time (more than a single second),
    the data will be recorded towards the end of the push, just before
    the transaction is committed to Mercurial. Although, this is an
-   implementation details.
+   implementation detail.
 
    There is no guarantee of strict ordering between dates. i.e. the
    ``date`` of push ID ``N + 1`` could be less than the ``date`` of push
