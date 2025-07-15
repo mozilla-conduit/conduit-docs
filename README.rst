@@ -14,7 +14,7 @@ Sphinx at the system level, you can use a virtualenv.  For example::
 
   $ python3 -m venv venv
   $ . venv/bin/activate
-  (venv) $ pip3 install Sphinx
+  (venv) $ pip3 install -r requirements.txt
   Collecting Sphinx
   Downloading Sphinx-3.5.4-py3-none-any.whl (2.8 MB)
   ...

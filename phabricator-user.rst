@@ -97,10 +97,14 @@ Setting up MozPhab
 
 The preferred and officially supported ways to submit patches are via
 our custom command-line tool, `moz-phab
-<https://github.com/mozilla-conduit/review>`_. ``moz-phab`` currently requires Arcanist
-and will install it automatically.
+<https://github.com/mozilla-conduit/review>`_.
 
-Installing the tool depends on your operating system:
+If you're working out of mozilla-central, the easiest way to install
+`moz-phab` is::
+
+    $ ./mach install-moz-phab
+
+Otherwise, installing the tool depends on your operating system:
 
 * :doc:`Windows 10 MozPhab Installation Guide </mozphab-windows>`
 * :doc:`Linux MozPhab Installation Guide </mozphab-linux>`
@@ -114,7 +118,9 @@ following command::
 
 This will prompt you to visit a page on our Phabricator instance, which
 will generate an API key for you to paste into your terminal.  The
-key is stored in the file ``.arcrc`` in your home directory.
+key is stored in the file ``.arcrc`` in your home directory on macOS or
+Linux, and on Windows it is in ``%APPDATA%`` (likely the ``AppData\Roaming``
+subfolder of your user directory).
 
 ******************
 Submitting Patches
@@ -125,13 +131,13 @@ Submitting Patches
 Using moz-phab
 ==============
 
-moz-phab is a custom command-line tool that improves on Arcanist's
-limited support for commit series, as well as providing other
-conveniences, including the parsing of bug IDs and reviewers from
-commit messages.  We recommend using it if you regularly construct
-stacks of dependent changesets, or even if you regularly review them.
+moz-phab is a custom command-line tool that provides support for
+commit series, as well as providing other conveniences, including
+the parsing of bug IDs and reviewers from commit messages.  We
+recommend using it if you regularly construct stacks of dependent
+changesets, or even if you regularly review them.
 
-Installation and usage instructions are in the repository's `README.md
+Usage instructions are in the repository's `README.md
 <https://github.com/mozilla-conduit/review/blob/master/README.md>`_.
 Note that moz-phab is in active development, with new features and
 improvements landing regularly.  See the current `bug list
@@ -227,11 +233,6 @@ For Mercurial repositories, in particular `mozilla-central
 :doc:`Lando </lando-user>`.  See :ref:`getting-in-touch` to have
 repositories added to Phabricator and Lando.
 
-If you cannot use Lando, we highly recommend manually landing
-to mozilla-inbound without the use of ``arc patch`` nor ``arc land``,
-both of which add metadata to the commit message which may not be
-desirable, such as the list of revision subscribers.
-
 If you do not have the commit applied locally and you are landing someone else's
 patch, you can run ``moz-phab patch D<revision id> --nobranch`` to apply the
 commit(s) locally (``--nobranch`` ensures the commits are applied to the current
@@ -247,8 +248,8 @@ as the body.
 Our Installation
 ****************
 
-Mozilla's Phabricator instance is a stock installation, with a small patch
-applied, and some custom extensions.  The patch and extensions are
+Mozilla's Phabricator instance is a fork with a few small patches
+applied, and some custom extensions.  The patches and extensions are
 intentionally small in scope and are limited to supporting integration
 points with `bugzilla.mozilla.org <https://bugzilla.mozilla.org>`_
 ("BMO").
@@ -358,6 +359,14 @@ We will, however, display some revision metadata in associated
 bugs; see `bug 1489706
 <https://bugzilla.mozilla.org/show_bug.cgi?id=1489706>`_.
 
+***************
+Uplift Requests
+***************
+
+Uplift requests are submitted as regular review request on Phabricator.
+See `the Release Management guide <https://wiki.mozilla.org/Release_Management/Requesting_an_Uplift>`_
+for more details on how to submit an uplift request.
+
 **************************
 Mozilla Phabricator Emails
 **************************
@@ -410,7 +419,7 @@ the main components:
 * `Documentation
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Documentation>`_:
   For issues with these and other project docs.
-* `Phabricator
+* `Phabricator Component in BMO
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Phabricator>`_:
   For issues with Phabricator, including our extensions (authentication, BMO integration,
   etc.) and with the upstream Phabricator product.  For bugs in our
@@ -424,10 +433,6 @@ the main components:
 * `Lando
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Lando>`_:
   For issues with Lando, the UI/API for requesting and monitoring commit landings.
-* `Transplant
-  <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=Transplant>`_:
-  For issues with Transplant, the backend service which takes landing requests from Lando and
-  pushes them to the relevant repository.
 * `General
   <https://bugzilla.mozilla.org/enter_bug.cgi?product=Conduit&component=General>`_:
   Feel free to file issues here if you aren't sure where they should
