@@ -2,7 +2,7 @@
 Git Hg Sync
 ###########
 
-While Lando now supports Git has a target SCM for landing, most automation
+While Lando now supports Git as a target SCM for landing, most automation
 still relies pushes landing in `Mercurial <https://hg.mozilla.org/>`_. The `Git
 Hg Sync component <https://github.com/mozilla-conduit/git-hg-sync/>`_ is in
 charge of syncing commits and tags from GitHub to HgMO.
