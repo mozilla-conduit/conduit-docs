@@ -80,7 +80,7 @@ The top-level objects contains the following properties:
    An object containing push information. See `Push Objects <push_objects_>`_ below.
 
 ``lastpushid``
-   The push ID of the most recent push known to the database.
+   The push ID of the most recent push known to Lando.
 
    This value can be used by clients to determine if more pushes are
    available. For example, clients may query for N commits at a time
