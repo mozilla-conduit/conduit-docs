@@ -137,7 +137,7 @@ The configuration file can also contain details about Pulse, in the ``pulse`` se
 
 .. note:: For more deployment flexibility, Pulse parameters are overridable via environment variables.
 
-`Pulse <https://wiki.mozilla.org/Auto-tools/Projects/Pulse>`_ in an AMQP pub/sub service based on RabbitMQ. However, it enforces a handful of additional rules. Most importantly:
+`Pulse <https://wiki.mozilla.org/Auto-tools/Projects/Pulse>`_ is an AMQP pub/sub service based on RabbitMQ. However, it enforces a handful of additional rules. Most importantly:
 
 * exchanges should be named ``exchange/<clientId>/<name>``,
 * they should be of type ``topic``, and
