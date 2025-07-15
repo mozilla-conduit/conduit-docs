@@ -57,7 +57,9 @@ Source Repositories
 
 This is a list of repositories to monitor. The ``name`` is used for the working directory in the directory specified by ``clones.directory``.
 
-.. note:: Any Pulse notification not related to a tracked repository will be ignored. The list is also used when bootstrapping the working directory, by pre-fetching the data in Git.
+.. note:: Any Pulse notification not related to a tracked repository will be ignored.
+
+The list is also used when bootstrapping the working directory, by `pre-fetching the data in Git <fetchrepo_>`_.
 
 
 Branch Mapping
@@ -166,10 +168,17 @@ Inspecting the Run-time Configuration
 
 The ``config`` command simply dumps a pretty-printed version of the live configuration to the console. This is a combination of the static information from the configuration file, as well as anything overridden from the environment.
 
+.. warning:: Sensitive data such as passwords is not redacted from this output.
+
+.. _fetchrepo:
+
 Pre-fetching Working Directory Data
 -----------------------------------
 
 The ``fetchrepo`` command is used to pre-populate or update the local working directory. It fetches all available commits from the Git source, as well as (optionally) any target Mercurial repo from the ``branch_mappings`` (as long as they do not contain dynamic replacement from regular expression capturing groups).
+
+.. warning:: There may be some issues in bootstrapping the tags branches, see
+   `bug 1962599 <https://bugzilla.mozilla.org/show_bug.cgi?id=1962599>`_.
 
 This command takes a mandatory ``--repository-url`` option, which should be the full URL of one of the ``tracked_repositries``.
 
