@@ -16,6 +16,7 @@ the ``C:\mozilla-build\start-shell.bat``.
 #. If you don't have Git already installed (note that it is not
    currently packaged with MozillaBuild), you'll need to grab it from
    https://git-scm.com/download/win and install it.
+#. Ensure that Python 3.x is installed: Open the Command Prompt/PowerShell and type "python3". If it's not installed, you'll be redirected to the Microsoft Store to install it.
 #. Run ``pip3 install MozPhab``.
 #. Add ``moz-phab`` and ``git`` to the ``$PATH`` variable.
    If you use MSYS (including MozillaBuild) exclusively, you can add this to
