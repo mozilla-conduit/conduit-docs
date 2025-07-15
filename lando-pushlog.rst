@@ -13,7 +13,7 @@ Since the Git migration, however, Lando maintains the PushLog as the source of
 truth.
 
 The Git PushLog retains the same format as the original one from HgMO for
-backward compatibility, and data retention. It also extends the data with new
+backward compatibility and data retention. It also extends the data with new
 Git-specific information. New and updated clients should be relying on the Git
 information.
 
