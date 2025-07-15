@@ -46,7 +46,7 @@ Set-up and Configuration
 
 Git-Hg-Sync runs in GCPv2. This is configured in `the webservices-infra repository <https://github.com/mozilla/webservices-infra/tree/main/git-hg-sync>`_. This is a Docker-based deployment, following the `DockerFlow guidelines <https://github.com/mozilla-services/Dockerflow>`_. The images are `built in GitHub actions <https://github.com/mozilla-conduit/git-hg-sync/blob/main/.github/workflows/deploy.yml>`_.
 
-The mapping of which data in Git should go where in Mercurial is described in a configuration file. For ease of maintenance, configuration files for all envirenments are checked in with the source code, and built into the Docker images. The configuration file to use in a specific deployment is selected based on the ``ENVIRONMENT`` variable. For example, the `production` environment will use the ``config-production.toml`` configuration.
+The mapping of which data in Git should go where in Mercurial is described in a configuration file. For ease of maintenance, configuration files for all environments are checked in with the source code, and built into the Docker images. The configuration file to use in a specific deployment is selected based on the ``ENVIRONMENT`` environment variable. For example, the `production` environment will use the ``config-production.toml`` configuration.
 
 There are three main sections in the configuration file: ``tracked_repositories``, ``branch_mappings``, and ``tag_mappings``.
 
