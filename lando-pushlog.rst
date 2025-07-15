@@ -196,7 +196,7 @@ Whenever a change has landed to a PushLog-enabled repository, Lando will send a 
 
 A single message can represent any number of pushes to various `branches`. It may also contain any number of `tags`.
 
-.. note:: For the purpose of syncing changes from Git to Mercuria, the `commit_id` in each in the `tags` object needs to exist in the target repository prior to the tag being created. It may be present in the `branches` object as part of the same message.
+.. note:: For the purpose of syncing changes from Git to Mercurial, the `commit_id` in each in the `tags` object needs to exist in the target repository prior to the tag being created. It may be present in the `branches` object as part of the same message.
 
 ::
 
