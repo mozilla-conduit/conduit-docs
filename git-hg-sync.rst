@@ -170,7 +170,7 @@ The ``fetchrepo`` configuration is used to pre-populate or update the local work
 
 This command takes a mandatory ``--repository-url`` option, which should be the full URL of one of the ``tracked_repositries``.
 
-If the ``--fetch-all`` option is passed, it data from Mercurial will also be fetched. The ``--verbose`` option requests that the output from the `git` and `hg` operation be output to the console.
+If the ``--fetch-all`` option is passed, all data from Mercurial will also be fetched. The ``--verbose`` option requests that the output from the `git` and `hg` operation be output to the console.
 
 
 Removing an Erroneous Pulse Notification
