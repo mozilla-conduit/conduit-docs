@@ -38,7 +38,7 @@ Architecture
      sync:R --> L:hgmo
 
 
-After successfully having pushed changes to Git, Lando publishes messages to ``pulse.mozilla.org`` (AMQP). Those notifications contain information about the commits, branches and tags. Git-Hg-Sync processes those messages to determine what to fetch from Git and push to ``mercurial.mozilla.org`` (HgMO). It processes the notifications in strict order, retrying a failure until it succeeds (or is otherwise removed from the tip of the queue).
+After successfully having pushed changes to Git, Lando publishes messages to ``pulse.mozilla.org`` (AMQP). Those notifications contain information about the commits, branches and tags. Git-Hg-Sync processes those messages to determine what to fetch from Git and push to ``hg.mozilla.org`` (HgMO). It processes the notifications in strict order, retrying a failure until it succeeds (or is otherwise removed from the tip of the queue).
 
 ************************
 Set-up and Configuration
