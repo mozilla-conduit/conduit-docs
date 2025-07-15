@@ -180,4 +180,4 @@ It may happen that a Pulse notification leads to a terminally failing action. As
 
 .. warning:: Skipping a message may have unwanted consequences and require ad hoc fixes to be made to recover.
 
-The ``dequeue`` command can be used to remove the tip message from the queue. For safety, it requires explicit passing of the ``--repository-url`` and ``--push-id`` options. The values of those options is compared to what is present in the first notification in the queue. Only iff those details matches will the message be removed.
+The ``dequeue`` command can be used to remove the tip message from the queue. For safety, it requires explicit passing of the ``--repository-url`` and ``--push-id`` options. The values of those options is compared to what is present in the first notification in the queue. Only iff those details match will the message be removed.
