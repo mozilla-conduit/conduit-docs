@@ -20,7 +20,7 @@ information.
 By default, new repositories in Lando will be created with PushLog support
 enabled. However, it is possible to disable it on a per-repository basis. This
 is useful for Mercurial repos, for which the HgMO pushlog is the source of
-truth..
+truth.
 
 *******
 PushLog
