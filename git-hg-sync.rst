@@ -121,7 +121,7 @@ Mercurial's support for tags relies on inspecting information from the ``.hgtags
 
 The solution to this problem is to use a separate branch in Mercurial repositories, dedicated to receiving tags. The Git-Hg-Sync worker will maintain a Git branch named after ``tags_destination_branch`` *locally* in the working repository, and push that branch to a matching one in Mercurial.
 
-.. note:: Tags branches are created as orphan branches without shared history with the ``default`` branch. The custom hook `SingleRootCheck <https://hg-edge.mozilla.org/hgcustom/version-control-tools/file/tip/hghooks/mozhghooks/check/single_root.py#l28>`_ in HgMO forbids branches with multiple roots. This hook must be disabled for any target repository.
+.. note:: Tags branches are created as orphan branches without shared history with the ``default`` branch. The custom hook `SingleRootCheck <https://hg-edge.mozilla.org/hgcustom/version-control-tools/file/tip/hghooks/mozhghooks/check/single_root.py#l28>`_ in HgMO forbids branches with multiple roots. This hook must be disabled for any target repository. Alternatively, the root of the new branch can be added in the ``allowedroots`` section of the relevant ``hgrc``, e.g., for Firefox, `Bug 1978262 <https://bugzilla.mozilla.org/show_bug.cgi?id=1978262>`_.
 
 Due to differences in the data models between Git and Mercurial, git-cinnabar refuses to create a tag which already exists in the repository, even if on a different branch. As a result, it is recommended to use the same ``tags_destination_branch`` for all ``tag_mappings`` with the same source from the ``tracked_repositories``.
 
