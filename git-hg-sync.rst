@@ -12,6 +12,8 @@ charge of syncing commits and tags from GitHub to HgMO.
 
 It relies on logic from `git-cinnabar <https://github.com/glandium/git-cinnabar>`_ to create and record a two-way map between Git and Hg commits. Due to the difference in branch and tags management between Git and HgMO, changes to one Git repository may be reflected as changes to various repository in HgMO. More often, this depends on which git branch the commits were added.
 
+.. warning:: **Signed git commits are not supported, and will break sync badly**. This is due to the use of git-cinnabar, and the expectation of stable two-way mapping between Git and Hg commits. git-cinnabar supports Git signatures in its local metadata. However, it won't be able to map the commits back correctly to another Git repository if reading from synced Hg changesets. This may also lead to further issues if the signed commits already exist there, and multiple Git commits map to the same Hg changeset.
+
 ************
 Architecture
 ************
